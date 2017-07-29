@@ -1,0 +1,61 @@
+
+<app-header>
+</app-header>
+
+
+<div class="main-container-in main-container-in-small pad__auth-form"
+    *ngIf=" id == 'login' " >
+
+    <p class="balance" > balance : 1000 </p>
+
+    <p>
+        <span> 100 </span>
+        <input name="amount" type="radio" value="100" #amount 
+        (click)="login(amount.value)" >
+    </p>
+    <p>
+        <span> 200 </span>
+        <input name="amount" type="radio" value="200" #amount2 
+        (click)="login(amount2.value)" >
+    </p>
+    <p>
+        <span> 300 </span>
+        <input name="amount" type="radio" value="300" #amount3
+        (click)="login(amount3.value)"  >
+    </p>
+    <p>
+        <span> 400 </span>
+        <input name="amount" type="radio" value="400" #amount4
+        (click)="login(amount4.value)" >
+    </p>
+
+</div>
+
+
+<div class="main-container-in main-container-in-small pad__auth-form"
+    *ngIf=" id == 'payout' " >
+
+    <button (click)="backToLogin()" > go back </button>
+
+    <p>
+        <span> Email : </span>
+        {{ paypalService?.userinfo?.email }}
+    </p>
+
+    <p>
+        <span> Amount : </span>
+        {{ paypalService.amount }}
+    </p>
+
+    <button (click)="payout()"
+    > continue </button>
+
+</div>
+
+
+<div class="main-container-in main-container-in-small pad__auth-form"
+    *ngIf=" id == 'success' " >
+
+    SUCCESS
+
+</div>
