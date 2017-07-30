@@ -2317,12 +2317,12 @@ var SettingService = SettingService_1 = (function () {
         if (SettingService_1.instance) {
             return SettingService_1.instance;
         }
-        console.log(" LOCATION : ", window.location);
+        console.log(" LOCATION : ", window.location.protocol, window.location);
         if (window.location.hostname == "localhost") {
             SettingService_1.originPaypal = window.location.protocol + "//" + window.location.hostname + ':3000';
         }
         else {
-            SettingService_1.originPaypal = window.location.protocol + '://52.58.162.133:3000';
+            SettingService_1.originPaypal = window.location.protocol + '//52.58.162.133:3000';
         }
     }
     return SettingService;

@@ -11,11 +11,11 @@ export class SettingService {
         if ( SettingService.instance ) {
             return SettingService.instance;
         }
-        console.log( " LOCATION : ", window.location );
+        console.log( " LOCATION : ", window.location.protocol , window.location );
         if ( window.location.hostname == "localhost" ) {
             SettingService.originPaypal = window.location.protocol + "//" + window.location.hostname + ':3000';            
         } else {
-            SettingService.originPaypal = window.location.protocol + '://52.58.162.133:3000';
+            SettingService.originPaypal = window.location.protocol + '//52.58.162.133:3000';
         }
     }
 
