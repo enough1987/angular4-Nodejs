@@ -1257,9 +1257,6 @@ var PayoutComponent = (function () {
     }
     PayoutComponent.prototype.ngOnInit = function () {
         var sub = this.activatedRoute.params.subscribe(this.listenParam);
-        this.paypalService.payout().subscribe(function (data) {
-            console.log(data);
-        });
     };
     PayoutComponent.prototype.login = function (amount) {
         var _this = this;

@@ -18,12 +18,7 @@ export class PayoutComponent {
   }
 
   ngOnInit() {
-    const sub = this.activatedRoute.params.subscribe(this.listenParam);
-
-    this.paypalService.payout().subscribe((data:any) => {
-      console.log(data);
-    });
-    
+    const sub = this.activatedRoute.params.subscribe(this.listenParam); 
   }
 
   private listenParam = (params) => {
