@@ -2,34 +2,42 @@ var express = require('express');
 
 var router = express.Router();
 
-
+// http://52.59.169.152 -  front
+// http://52.58.162.133 - back
 //const baseurl = 'http://52.58.162.133:3000'; // "http://localhost/:3000";
-const redirectUrl = 'http://localhost:4200/payout/payout'; 
+
 const PAYPAl_Client_ID = "ASZol-Q4dHOyz8WpmHLowulhTToPfhOxuNFxPVUdl1JRuFKK7INxOy4jYZPwGoObignBTpaqXx89XKGF"; // sanbox
 const PAYPAl_Client_SECRET = "EMcD8ACKvxLKeJmk683j-Dcpr_AmuL7hmwM3LGKH3qEsGOyV5NM0iN7qPV1mupFVk0xsd_AcKy24Nw_z"; // sandbox
 const paypalMode = "sandbox"; 
 
 
-const configureOpenid = (paypal) => {
+const getRedirectUrl = (req) => {
+    if ( req.headers.host === "localhost:3000" ) {
+      return 'http://localhost:4200/payout/payout';
+    } else {
+      return 'http://52.59.169.152/payout/payout';
+    }
+};
+
+const configureOpenid = (paypal, req) => {
   console.log(' <- config config config ->');
   paypal.configure({
     'mode': paypalMode,
     'openid_client_id': PAYPAl_Client_ID,
     'openid_client_secret': PAYPAl_Client_SECRET,
-    'openid_redirect_uri': redirectUrl 
+    'openid_redirect_uri': getRedirectUrl(req) 
   });
 };
 
 
 console.log( " PAYPAL -------> " );
 
-
 // step 1
 router.post('/api/paypal/authorizeUrl', function (req, res, next) {
   try {
 
     const paypal = require('paypal-rest-sdk');
-    configureOpenid(paypal);
+    configureOpenid(paypal, req);
     const openIdConnect = paypal.openIdConnect;
     const authorizeUrl = openIdConnect.authorizeUrl({ 'scope': 'openid profile email https://uri.paypal.com/services/expresscheckout' });
     console.log( authorizeUrl );
@@ -47,7 +55,7 @@ router.post('/api/paypal/tokeninfoCreate', function (req, res, next) {
     
     console.log( req.body.code );
     const paypal = require('paypal-rest-sdk');
-    configureOpenid(paypal);
+    configureOpenid(paypal, req);
     const openIdConnect = paypal.openIdConnect;
     openIdConnect.tokeninfo.create(req.body.code, function (error, tokeninfo) {
       if (error) {

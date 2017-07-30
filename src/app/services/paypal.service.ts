@@ -2,13 +2,12 @@ import { Injectable } from '@angular/core';
 
 
 import { HttpService } from "./http.service";
+import { SettingService } from "app";
 
 
 @Injectable()
 export class PaypalService {
 
-
-    private origin = 'http://52.58.162.133:3000'; // "http://localhost:3000";
     authorizeCode: string;
     authorizeUrl: string;
     userinfo: any;
@@ -26,7 +25,7 @@ export class PaypalService {
 
     getAuthorizeUrl = () => {
         return this.httpService.post(
-            this.origin + "/api/paypal/authorizeUrl"
+            SettingService.originPaypal + "/api/paypal/authorizeUrl"
         ).map((data: any) => {
             if (data.authorizeUrl) {
                 console.log(" authorizeUrl ", data);
@@ -45,7 +44,7 @@ export class PaypalService {
     getUserInfo = () => {
         console.log(" code ", this.authorizeCode);
         return this.httpService.post(
-            this.origin + "/api/paypal/tokeninfoCreate", {
+            SettingService.originPaypal + "/api/paypal/tokeninfoCreate", {
                 code: this.authorizeCode
             }).map((data: any) => {
                 console.log(data);
@@ -59,7 +58,7 @@ export class PaypalService {
     payout = () => {
         console.log(" amount ", this.amount);
         return this.httpService.post(
-            this.origin + "/api/paypal/payout", {
+            SettingService.originPaypal + "/api/paypal/payout", {
                 amount: this.amount,
                 currency: "USD",
                 email: this.userinfo ? this.userinfo.email : "",
