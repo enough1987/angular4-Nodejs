@@ -23,7 +23,7 @@ export class PayoutComponent {
 
   private listenParam = (params) => {
     this.id = params['id'];
-    console.log('ID : ', this.id);
+    console.log('ID : ', this.id, " = ", this.paypalService );
     if (this.id == 'login') {
       this.paypalService.getAuthorizeUrl().subscribe((data) => {});
     }
@@ -46,7 +46,7 @@ export class PayoutComponent {
 
     }
   };
-
+ 
   login(amount: string) {
     this.paypalService.getAuthorizeUrl().subscribe((data) => {
       this.paypalService.login(amount);
@@ -63,16 +63,17 @@ export class PayoutComponent {
     this.paypalService.payout().subscribe((data:any) => {
       console.log(data);
       if ( data.links[0] ) {
-        this.router.navigate(['/payout/success']); 
+        alert( " YES" );
+        this.router.navigate(['/payout/init']); 
         //window.location.href =  data.links[0].href;       
       } else {
-        alert(' no no no ');
+        alert(' NO ');
       }
     });
   }
 
-  backToLogin(){
-    this.router.navigate(['/payout/login']);
+  backToInit(){
+    this.router.navigate(['/payout/init']);
   }
 
 
