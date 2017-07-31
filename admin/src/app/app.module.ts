@@ -26,13 +26,15 @@ import { FullLayoutComponent } from './layouts/full-layout.component';
 import { DashboardModule } from "app/dashboard/dashboard.module";
 
 
-import { MobileConsoleComponent } from "app/dashboard/mobile-console.component";
+import { MobileConsoleComponent } from "app/dashboard/mobile-console/mobile-console.component";
 import { DashboardComponent } from "app/dashboard/dashboard.component";
+import { PurchasesComponent } from "app/dashboard/purchases/purchases.component";
 import { AuthService } from "app/shared/auth.service";
 import { LoginComponent } from "app/dashboard/login.component";
 
 
 import { SafePipe } from "./shared/save.pipe";
+
 
 
 @NgModule({
@@ -55,6 +57,7 @@ import { SafePipe } from "./shared/save.pipe";
 
     MobileConsoleComponent,
     DashboardComponent ,
+    PurchasesComponent,
     LoginComponent,
 
     SafePipe

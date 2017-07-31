@@ -3,7 +3,7 @@ import { Routes,
      RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard.component';
-import { MobileConsoleComponent } from './mobile-console.component';
+import { MobileConsoleComponent } from './mobile-console/mobile-console.component';
 
 const routes: Routes = [
   {

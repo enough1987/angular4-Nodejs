@@ -56,14 +56,15 @@ export class PayoutComponent {
   payout() {
     console.log(this.paypalService.amount, ' || ', this.paypalService.userinfo);
     if (!this.paypalService.amount || !this.paypalService.userinfo) {
-      //alert(" test - no authorizeCode ");
+      alert(" test - no authorizeCode ");
       //this.router.navigate(['/payout/login']);
-      //return;
+      return;
     }
     this.paypalService.payout().subscribe((data:any) => {
       console.log(data);
       if ( data.links[0] ) {
-        this.router.navigate(['/payout/success']);        
+        this.router.navigate(['/payout/success']); 
+        //window.location.href =  data.links[0].href;       
       } else {
         alert(' no no no ');
       }

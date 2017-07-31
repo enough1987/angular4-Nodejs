@@ -1,0 +1,109 @@
+<div class="animated fadeIn pad__top-middle dashboard-wrap vh90">
+
+
+    <div class="purchases-header">
+
+        <button type="button" class="btn btn-secondary item-right" (click)="toggleAddPurchase()"> 
+            {{ !isAddPurchase ? 'Add' : 'Show list' }}
+        </button>
+
+    </div>
+
+    <div *ngIf="!isAddPurchase" >
+
+        <h4 class="purchase-h" > List of purchases : </h4>
+
+        <div class="purchases-wrap scroll vh82">
+
+            <div class="purchase" 
+                *ngFor="let purchase of purchases; let i = index;">
+
+                <button type="button" class="btn btn-secondary purchase-btn" 
+                    *ngIf="!purchase.editPurchaseMode"
+                    (click)="setEditPurchaseMode(purchase)" > Edit </button>
+                <button type="button" class="btn btn-secondary purchase-btn"
+                    *ngIf="purchase.editPurchaseMode" 
+                    (click)="savePurchase(purchase)" > Save </button>
+                <button type="button" class="btn btn-secondary purchase-btn" 
+                    (click)="removePurchase(purchase)" > Remove </button>
+
+                <p> Id : 
+                    <span 
+                    *ngIf="!purchase.editPurchaseMode" > 
+                    {{ purchase.id }} 
+                    </span>
+                    <input type="text" 
+                    *ngIf="purchase.editPurchaseMode"
+                    [(ngModel)]="purchase.id" >
+                </p>
+                <p> Order number : 
+                    <span 
+                    *ngIf="!purchase.editPurchaseMode" > 
+                    {{ purchase.orderNumber }} 
+                    </span>
+                    <input type="text" 
+                    *ngIf="purchase.editPurchaseMode"
+                    [(ngModel)]="purchase.orderNumber" >
+                </p>
+                <p> Discount checkbox : 
+                    <span 
+                    *ngIf="!purchase.editPurchaseMode" > 
+                    {{ purchase.discountCheckbox }} 
+                    </span>
+                    <input type="text" 
+                    *ngIf="purchase.editPurchaseMode"
+                    [(ngModel)]="purchase.discountCheckbox" >
+                </p>
+                <p> Gift Simple :
+                    <span 
+                    *ngIf="!purchase.editPurchaseMode" > 
+                    {{ purchase.giftSimple }} 
+                    </span>
+                    <input type="text" 
+                    *ngIf="purchase.editPurchaseMode"
+                    [(ngModel)]="purchase.giftSimple" >
+                </p>
+                <p> Gift Rare :
+                    <span 
+                    *ngIf="!purchase.editPurchaseMode" > 
+                    {{ purchase.giftRare }} 
+                    </span>
+                    <input type="text" 
+                    *ngIf="purchase.editPurchaseMode"
+                    [(ngModel)]="purchase.giftRare" >
+                </p>
+                <p> Gift Excellent :
+                    <span 
+                    *ngIf="!purchase.editPurchaseMode" > 
+                    {{ purchase.giftExcellent }} 
+                    </span>
+                    <input type="text" 
+                    *ngIf="purchase.editPurchaseMode"
+                    [(ngModel)]="purchase.giftExcellent" >
+                </p>
+                <p> Package Image :
+                    <span 
+                    *ngIf="!purchase.editPurchaseMode" > 
+                    {{ purchase.packageImage }} 
+                    </span>
+                    <input type="text" 
+                    *ngIf="purchase.editPurchaseMode"
+                    [(ngModel)]="purchase.packageImage" >
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div *ngIf="isAddPurchase" >
+
+        adding form
+
+    </div>
+
+
+
+</div>

@@ -70,11 +70,11 @@ nav.sidebar-nav {
 }
  
 .vh82 {
-    height: 82vh;
+    max-height: 82vh;
 }
  
 .vh76 {
-    height: 76vh;
+    max-height: 76vh;
 }
 
 
@@ -118,7 +118,7 @@ nav.sidebar-nav {
     }
 }
 
-.console-list {
+.console-list, .dashboard-wrap {
     position: relative;
     background: white;
     padding: 5px;
@@ -153,9 +153,64 @@ nav.sidebar-nav {
 
 }
 
+.dashboard-wrap {
+    width: 100%;
+}
+
+.item-right {
+    
+}
+
+.purchases-header {
+    padding: 1%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    justify-content: flex-end;
+}
+
+.purchase-h {
+    padding: 1%;
+}
+
+.purchases-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    .purchase {
+	    flex-grow: 1;
+        width: 30%;
+        max-width: 30%;
+        min-height: 200px;
+        display: inline-block;
+        border: 1px solid red;
+        padding: 1%;
+        margin-top: 5px;
+        margin-left: 5px;
+
+        .purchase-btn {
+
+        }
+    }
+
+}
+
 
 .pad__left-small {
     padding-left: 10px;
+}
+
+@media (max-width: 800px) {
+
+    .purchases-wrap {
+
+        .purchase {
+            width: 100%;
+            max-width: 100%;            
+        }
+
+    }
+
 }
 
 

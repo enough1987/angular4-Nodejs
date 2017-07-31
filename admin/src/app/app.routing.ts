@@ -6,7 +6,8 @@ import { FullLayoutComponent } from './layouts/full-layout.component';
 
 
 import { DashboardComponent } from "app/dashboard/dashboard.component";
-import { MobileConsoleComponent } from "app/dashboard/mobile-console.component";
+import { MobileConsoleComponent } from "app/dashboard/mobile-console/mobile-console.component";
+import { PurchasesComponent } from "app/dashboard/purchases/purchases.component";
 import { LoginComponent } from "app/dashboard/login.component";
 
 
@@ -42,6 +43,16 @@ export const routes: Routes = [
         path: 'dashboard/mobile-console/:id',
         component: MobileConsoleComponent,
         data: { title : 'Mobile Console' }
+      },
+      {
+        path: 'dashboard/purchases',
+        component: PurchasesComponent,
+        data: { title : 'Purchases' }
+      },
+      {
+        path: 'dashboard/purchases/:id',
+        component: PurchasesComponent,
+        data: { title : 'Purchases' }
       }
     ]
   },
