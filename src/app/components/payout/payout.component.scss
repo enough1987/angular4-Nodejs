@@ -8,12 +8,14 @@
     display: flex;
     flex-direction: column;
     background-color: white;
+    color: $marineblue;
 
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-weight: 400;
     line-height: 1.3;
 
     padding-top: 70px;
+    padding-top: 70/ 736 * 100vmax;
 
     box-sizing: border-box;
 
@@ -46,26 +48,34 @@
     &--currency {
         font-size: 0;
         width: 16px;
+        width: 16 / 736 * 100vmax;
         height: 16px;
+        height: 16 / 736 * 100vmax;
         margin-left: 8px;
+        margin-left: 8 / 736 * 100vmax;
         background-image: url("/assets/images/ico-dollar.png");
     }
 
     &--back {
-        width: 2.143em;
-        height: 2.143em;
+        width: 28px;
+        width: 28 / 736 * 100vmax;
+        height: 28px;
+        height: 28 / 736 * 100vmax;
         background-image: url("/assets/images/ico-back.png");
     }
 
     &--history {
-        width: 2.143em;
-        height: 2.143em;
+        width: 28px;
+        width: 28 / 736 * 100vmax;
+        height: 28px;
+        height: 28 / 736 * 100vmax;
         background-image: url("/assets/images/ico-history-clock.png");  
     }
 }
 
 .sidebar-content {
-    padding-bottom: 1.429em;
+    padding-bottom: 20px;
+    padding-bottom: 20 / 736 * 100vmax;
     color: $marineblue;
     padding: 0 9%;
 }
@@ -78,13 +88,16 @@
     left: 0px;
     z-index: 100;
     min-height: 72px;
+    min-height: 72 / 736 * 100vmax;
 
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0 1.429em;
-    padding-top: 2.143em;
-    padding-bottom: 0.7143em;
+    padding: 0 16px;
+    padding: 0 3.865%;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    padding-bottom: 10 / 736 * 100vmax;
     background-color: $dark-two;
     color: white;
 
@@ -93,41 +106,51 @@
 .sidebar-footer {
     padding: 0 9%;
     margin-top: auto;
-    padding-bottom: 1.429em;
-    min-height: 122px;
+    padding-bottom: 20px;
+    padding-top: 14px;
+    padding-top: 14 / 736 * 100vmax;
+    min-height: 124px;
+    min-height: 124 / 736 * 100vmax;
 
 
     .button {
-        max-width: 340px;
+        max-width: 80%;
         margin: 0 auto;
-        font-size: 1.286em;
+        font-size: 18px;
+        font-size: 18 / 736 * 100vmax;
         line-height: 1;
         text-align: center;
-        padding: 1em 2.143em;
+        padding: 19px 30px;
+        padding: 19 / 736 * 100vmax 30px;
         text-transform: capitalize;
     }
 }
 
 .sidebar-footer__notification {
-    width: 60%;
+    width: 56%;
     margin: 0 auto;
-    margin-top: 1.429em;
-    font-size: 0.7143em;
+    margin-top: 20px;
+    margin-top: 20 / 736 * 100vmax;
+    font-size: 10px;
+    font-size: 10 / 736 * 100vmax;
     text-align: center;
+    color: $marineblue;
 
     .notification__link {
-        font-family: 'OpenSans-Semibold';
+        font-family: "OpenSans-Semibold", "Open Sans", sans-serif;
         font-weight: 600; 
     }
 }
 
 .sidebar-title {
-    font-family: 'OpenSans-Semibold';
+    font-family: "OpenSans-Semibold", "Open Sans", sans-serif;
     font-weight: 600;
     color: white;
-    font-size: 1.286em;
+    font-size: 18px;
+    font-size: 18 / 736 * 100vmax;
     text-align: center;
-    min-width: calc(100% - 60px);
+    width: calc(100% - 56px);
+    width: calc(100% - 56  / 736 * 100vmax);
 
     span {
         color: white;
@@ -135,10 +158,12 @@
 }
 
 .balance {
-    padding: 3em 9%;
+    padding: 48px 9%;
+    padding:  47 / 736 * 100vmax 9%;
     background-color: $dark-two;
     color: $blue-grey-three;
-    font-size: 1.286em;
+    font-size: 18px;
+    font-size: 18 / 736 * 100vmax;
     text-transform: capitalize;
 
     p, span {
@@ -147,40 +172,59 @@
 
     .balance__amount {
         margin-top: 6px;
+        margin-top: 6 / 736 * 100vmax;
         color: white;
-        font-size: 2.286em;
-        font-family: 'OpenSans-Semibold';
+        font-size: 34px;
+        font-size: 34 / 736 * 100vmax;
+        font-family: "OpenSans-Semibold", "Open Sans", sans-serif;
         font-weight: 600px;
     }
 
     .icon--currency {
         width: 22px;
+        width: 22 / 736 * 100vmax;
         height: 22px;
-        margin-right: 1.143rem;
+        height: 22 / 736 * 100vmax;
+        margin: 0;
+        margin-right: 6px;
+        margin-right: 6 / 736 * 100vmax;
     }
 
 }
 
 
 .faq__question {
-    font-size: 1.286em;
-    margin-top: 1.429em;
-    margin-bottom: 0.8571em;
-    font-family: 'OpenSans-Semibold';
-    font-weight: 600px;
+    font-size: 18px;
+    font-size: 18 / 736 * 100vmax;
+    margin-top: 26px;
+    margin-top: 26 / 736 * 100vmax;
+
+    margin-bottom: 14px;
+    margin-bottom: 14 / 736 * 100vmax;
+    font-family: "OpenSans-Semibold", "Open Sans", sans-serif;
+    font-weight: 600;
+    color: $marineblue;
 }
 
 .faq__answer {
-    font-size: 1.143em;
-    margin: 1em 0;
-
+    font-size: 16px;
+    font-size: 16 / 736 * 100vmax;
+    margin: 14px 0;
+    margin: 14 / 736 * 100vmax 0;
+    font-family: "OpenSans-Light", "Open Sans", sans-serif;
+    font-weight: 300;
+    color: $marineblue;
 }
 
 .withdraw__p {
-    margin: 1em 0;
-    font-size: 1.143em;
+    margin-top: 18px;
+    margin-top: 18 / 736 * 100vmax;
+    margin-bottom: 12px;
+    margin-bottom: 12 / 736 * 100vmax;
+    font-size: 16px;
+    font-size: 16 / 736 * 100vmax;
     color: $main-dark;
-    font-family: 'OpenSans-Light';
+    font-family: "OpenSans-Light", "Open Sans", sans-serif;
     font-weight: 300;
 }
 
@@ -189,27 +233,25 @@
         border-bottom: 0.7px solid transparentize($silver-three, 0.7);
     }
 
-    input[type="radio"] {
+    .withdraw__amount-radio-btn {
         @include visually-hidden;
     }
 }
 
-input[type="radio"]:disabled + .withdraw__amount {
+.withdraw__amount-radio-btn:disabled + .withdraw__amount {
     opacity: 0.3;
     cursor: auto;
 }
 
-input[type="radio"]:checked + .withdraw__amount {
-    opacity: 0.8;
-}
-
 .withdraw__amount {
     display: block;
-    padding: 1em 0;
-    font-family: 'OpenSans-Semibold';
+    padding: 18px 0;
+    padding: 18 / 736 * 100vmax 0;
+    font-family: "OpenSans-Semibold", "Open Sans", sans-serif;
     font-weight: 600; 
-    font-size: 1.286em;
-    line-height: 1;
+    font-size: 18px;
+    font-size: 18 / 736 * 100vmax;
+    line-height: 1.5;
 
     background-image: url("/assets/images/ico-half-arrow.png");
     background-repeat: no-repeat;
@@ -230,13 +272,16 @@ input[type="radio"]:checked + .withdraw__amount {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     &--underlined {
-        padding:  1.429em 0;
+        padding:  20px 0;
+        padding: 10 / 736 * 100vmax 0;
 
         &:not(:first-of-type) {
             border-top: 0.7px solid transparentize($silver-three, 0.7);
-            margin-top: 0.7143em;
+            margin-top: 20px;
+            margin-top:  20 / 736 * 100vmax;
         }
     }
 }
@@ -245,22 +290,27 @@ input[type="radio"]:checked + .withdraw__amount {
     padding-right: 24px;
     background-repeat: no-repeat;
     background-position: right center;
-    background-size: 15px;
+    background-size: 16px;
+    background-size: 16 / 736 * 100vmax;
     background-image: url("/assets/images/ico-half-arrow.png");
 }
 
 .broadcast-details__item-name {
-    padding: 0.7143em 0;
+    padding: 10px 0;
+    padding: 10 / 736 * 100vmax 0;
     text-align: left;
-    font-size: 1.286em;
+    font-size: 18px;
+    font-size: 18 / 736 * 100vmax;
 }
 
 .broadcast-details__item-value {
-    padding: 0.7143em 0;
+    padding: 10px 0;
+    padding: 10 / 736 * 100vmax 0;
     text-align: right;
-    font-family: 'OpenSans-Semibold';
+    font-family: "OpenSans-Semibold", "Open Sans", sans-serif;
     font-weight: 600;
-    font-size: 1.286em;
+    font-size: 18px;
+    font-size: 18 / 736 * 100vmax;
 
     span {
         display: inline-block;
@@ -270,7 +320,8 @@ input[type="radio"]:checked + .withdraw__amount {
 }
 
 .income-history__item {
-    padding:  0.7143em 0;
+    padding:  10px 0;
+    padding: 10 / 736 * 100vmax 0;
 
     &:not(:first-of-type) {
         border-top: 0.7px solid transparentize($silver-three, 0.7);
@@ -278,26 +329,32 @@ input[type="radio"]:checked + .withdraw__amount {
 }
 
 .income-history__month {
-    margin-top: 1.143em;
-    font-family: 'OpenSans-Light';
+    margin-top: 18px;
+    margin-top: 18 / 736 * 100vmax;
+    font-family: "OpenSans-Light", "Open Sans", sans-serif;
     font-weight: 300;
-    font-size: 1.143em;
+    font-size: 16px;
+    font-size: 16 / 736 * 100vmax;
     text-align: left;
     color: $main-dark;
 }
 
 .income-history__date {
-    padding: 0.7143em 0;
+    padding: 10px 0;
+    padding:  10/ 736 * 100vmax 0;
     text-align: left;
-    font-size: 1.143em;
+    font-size: 16px;
+    font-size: 16 / 736 * 100vmax;
 }
 
 .income-history__balance {
-    padding: 0.7143em 0;
+    padding: 10px 0;
+    padding: 10 / 736 * 100vmax 0;
     text-align: right;
-    font-family: 'OpenSans-Semibold';
+    font-family: "OpenSans-Semibold", "Open Sans", sans-serif;
     font-weight: 600;
-    font-size: 1.286em;
+    font-size: 18px;
+    font-size: 18 / 736 * 100vmax;
 
     span {
         display: inline-block;
@@ -306,34 +363,44 @@ input[type="radio"]:checked + .withdraw__amount {
 }
 
 .income-history-item__detail {
-    margin: 2.286em 0;
+    margin-top: 36px;
+    margin-top: 36 / 736 * 100vmax;
 }
 
 
 .income-history-item__detail-name {
-    font-size: 1em;
+    font-size: 14px;
+    font-size: 14 / 736 * 100vmax;
     color: $bluegrey-two;
 }
 
 .income-history-item__detail-value {
-    font-size: 1.286em;
+    font-size: 18px;
+    font-size: 18 / 736 * 100vmax;
     margin: 8px 0;   
+    margin: 8 / 736 * 100vmax 0;
 
     .income-history-item__detail--amount & {
-        font-family: 'OpenSans-Semibold';
+        font-family: "OpenSans-Semibold", "Open Sans", sans-serif;
         font-weight: 600;
     }
 
 }
 
 .withdraw-terms__subtitle {
-    font-family: 'OpenSans-Bold';
-    font-size: 1.714em;
-    margin: 1em 0;
+    font-family: "OpenSans-Bold", "Open Sans", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    font-size: 23 / 736 * 100vmax;
+    margin-top: 20px;
+    margin-top: 20 / 736 * 100vmax;
+    margin-bottom: 12px;
+    margin-bottom: 12 / 736 * 100vmax;
 }
 
 .withdraw-terms__p {
-    font-size: 1.143em;
+    font-size: 16px;
+    font-size: 16 / 736 * 100vmax;
     line-height: 1.3;
-
+    color: $marineblue;
 }

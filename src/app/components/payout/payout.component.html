@@ -44,7 +44,7 @@
 [routerLink]="['/payout/login']" 
             class="button button-pink button-pink-bgc button--whithdraw-confirm">Cash out</a>
         </div>
-        <p class="sidebar-footer__notification">By pressing Cash Out button, you agree to 
+        <p class="sidebar-footer__notification">By pressing Cash Out button, you agree to&nbsp;
             <a class="notification__link" 
 [routerLink]="['/payout/terms']"
              >Withdrawal Terms</a></p>
@@ -74,7 +74,7 @@
             <p class="withdraw__p">Choose amount to withdraw</p>
             <ul  class="withdraw__options-list">
                 <li class="withdraw__option">
-                    <input name="amount" type="radio" value="200" id="amount" 
+                    <input class="withdraw__amount-radio-btn" name="amount" type="radio" value="200" id="amount" 
 #amount
 (click)="login(amount.value)" >
                     <label for="amount" class="withdraw__amount">
@@ -83,7 +83,7 @@
                         </label>
                 </li>
                 <li class="withdraw__option">
-                    <input name="amount" type="radio" value="300" id="amount2" 
+                    <input class="withdraw__amount-radio-btn" name="amount" type="radio" value="300" id="amount2" 
 #amount2 
 (click)="login(amount2.value)" >
                     <label for="amount2" class="withdraw__amount">
@@ -92,7 +92,7 @@
                     </label>
                 </li>
                 <li class="withdraw__option">
-                    <input name="amount" type="radio" value="400" id="amount3" 
+                    <input class="withdraw__amount-radio-btn" name="amount" type="radio" value="400" id="amount3" 
 #amount3
 (click)="login(amount3.value)"  >
                     <label for="amount3" class="withdraw__amount">
@@ -101,7 +101,7 @@
                     </label>
                 </li>
                 <li class="withdraw__option">
-                    <input name="amount" type="radio" value="400" id="amount4" disabled
+                    <input class="withdraw__amount-radio-btn" name="amount" type="radio" value="400" id="amount4" disabled
 #amount4 
 (click)="login(amount4.value)" >
                     <label for="amount4" class="withdraw__amount">
@@ -110,7 +110,7 @@
                     </label>
                 </li>
                 <li class="withdraw__option">
-                    <input name="amount" type="radio" value="100" id="amount5" disabled
+                    <input class="withdraw__amount-radio-btn" name="amount" type="radio" value="100" id="amount5" disabled
 #amount5
 (click)="login(amount5.value)" >
                     <label for="amount5" class="withdraw__amount">
@@ -235,7 +235,7 @@
             <p class="income-history-item__detail-name">Category</p>
             <p class="income-history-item__detail-value">Basics of Makeup</p>            
         </div>
-        <div>
+        <div class="income-history-item__detail">
             <p class="income-history-item__detail-name">Details</p>
             <ul class="broadcast-details">
                 <li class="broadcast-details__item">
