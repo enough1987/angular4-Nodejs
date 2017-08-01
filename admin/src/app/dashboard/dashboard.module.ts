@@ -6,7 +6,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 
 
 import { DashboardComponent } from './dashboard.component';
-import { MobileConsoleComponent } from './mobile-console.component';
+import { MobileConsoleComponent } from './mobile-console/mobile-console.component';
 
 
 @NgModule({

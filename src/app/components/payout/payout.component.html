@@ -1,12 +1,12 @@
 <div class="main-container-sidebar"
-*ngIf=" id == 'init' " >
-
+    *ngIf=" id == 'init' " >
+    
     <header class="sidebar-header">
         <button class="small-btn icon icon--back"
 [routerLink]="['/payout/back']" 
         ></button>
         <h1 class="sidebar-title">Income</h1>
-        <button class="small-btn icon icon--reload"
+        <button class="small-btn icon icon--history"
 [routerLink]="['/payout/history']"  ></button>
     </header>
 
@@ -59,7 +59,7 @@
 
     <header class="sidebar-header">
         <button class="small-btn icon icon--back"
-(click)="backToInit()"  ></button>
+        (click)="backToInit()"  ></button>
         <h1 class="sidebar-title">Withdraw</h1>
     </header>
 
@@ -112,7 +112,7 @@
                 <li class="withdraw__option">
                     <input name="amount" type="radio" value="100" id="amount5" disabled
 #amount5
-(click)="login(amount.value)" >
+(click)="login(amount5.value)" >
                     <label for="amount5" class="withdraw__amount">
                         <span class="icon icon--currency icon--usd">USD</span>
                         <span>600</span>
@@ -162,11 +162,11 @@
 
 
 <div class="main-container-sidebar"
-*ngIf=" id == 'history' " >
+    *ngIf=" id == 'historyitem1' " >
 
     <header class="sidebar-header">
         <button class="small-btn icon icon--back"
-[routerLink]="['/payout/init']" ></button>
+[routerLink]="['/payout/history']" ></button>
         <h1 class="sidebar-title"><span class="income-history-item__date">Today</span> at 
             <span class="income-history-item__time"> 
 {{ '10:21 АМ' }}
@@ -216,6 +216,128 @@
 
 
 
+
+
+<div class="main-container-sidebar"
+    *ngIf=" id == 'historyitem2' " >
+
+    <header class="sidebar-header">
+        <button class="small-btn icon icon--back"
+        [routerLink]="['/payout/history']"></button>
+        <h1 class="sidebar-title"><span class="income-history-item__date">27 Jun</span> at <span class="income-history-item__time">9:33 АМ</span></h1>
+    </header>
+    <div class="sidebar-content">
+        <div class="income-history-item__detail  income-history-item__detail--broadcast-title">
+            <p class="income-history-item__detail-name">Broadcast  Title</p>
+            <p class="income-history-item__detail-value">Look Hot in 5 Minutes</p>            
+        </div>
+        <div class="income-history-item__detail  income-history-item__detail--category">
+            <p class="income-history-item__detail-name">Category</p>
+            <p class="income-history-item__detail-value">Basics of Makeup</p>            
+        </div>
+        <div>
+            <p class="income-history-item__detail-name">Details</p>
+            <ul class="broadcast-details">
+                <li class="broadcast-details__item">
+                    <p  class="broadcast-details__item-name">Broadcast Time</p>
+                    <p  class="broadcast-details__item-value">1h 5m</p>
+                </li>
+                <li class="broadcast-details__item">
+                    <p  class="broadcast-details__item-name">Viewers</p>
+                    <p  class="broadcast-details__item-value">1,46K</p>
+                </li>
+                <li class="broadcast-details__item">
+                    <p  class="broadcast-details__item-name">Followers</p>
+                    <p  class="broadcast-details__item-value">18</p>
+                </li>
+                <li class="broadcast-details__item">
+                    <p  class="broadcast-details__item-name">Likes</p>
+                    <p  class="broadcast-details__item-value">28,8K</p>
+                </li>
+                <li class="broadcast-details__item  broadcast-details__item--income  broadcast-details__item--underlined">
+                    <p  class="broadcast-details__item-name">Income</p>
+                    <p  class="broadcast-details__item-value">
+                        <span>1,000</span>
+                        <span class="icon icon--currency icon--usd">USD</span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="main-container-sidebar"
+    *ngIf=" id == 'history' " >
+
+    <header class="sidebar-header">
+        <button class="small-btn icon icon--back"></button>
+        <h1 class="sidebar-title">History</h1>
+    </header>
+    <div class="sidebar-content  income-history">
+            <p   class="income-history__month">June 2017</p>
+            <ul class="income-history">
+                <li  class="income-history__item    income-history__item--underlined">
+                    <a   class="income-history__link" href="" title="More details"
+                    [routerLink]="['/payout/historyitem1']">
+                        <p  class="income-history__date">Today, 10:21AM</p>
+                        <p  class="income-history__balance">
+                            <span>- 600</span>
+                            <span class="icon icon--currency icon--usd">USD</span>
+                        </p>
+                    </a>
+                </li>
+                <li  class="income-history__item    income-history__item--underlined">
+                    <a class="income-history__link" href="" title="More details"
+                    [routerLink]="['/payout/historyitem2']">
+                        <p  class="income-history__date">27 Jun, 9:33PM</p>
+                        <p  class="income-history__balance">
+                            <span>+ 1,000</span>
+                            <span class="icon icon--currency icon--usd">USD</span>
+                        </p>
+                    </a>
+                </li>
+            </ul>
+
+            <p   class="income-history__month">May 2017</p>
+            <ul class="income-history">
+                <li  class="income-history__item    income-history__item--underlined">
+                    <a class="income-history__link" href="" title="More details">
+                        <p  class="income-history__date">23 May, 3:34PM</p>
+                        <p  class="income-history__balance">
+                            <span>- 200</span>
+                            <span class="icon icon--currency icon--usd">USD</span>
+                        </p>
+                    </a>
+                </li>
+                <li  class="income-history__item    income-history__item--underlined">
+                    <a class="income-history__link" href="" title="More details">
+                        <p  class="income-history__date">21 May, 4:36PM</p>
+                        <p  class="income-history__balance">
+                            <span>- 600</span>
+                            <span class="icon icon--currency icon--usd">USD</span>
+
+                        </p>
+                    </a>
+                </li>
+                <li  class="income-history__item    income-history__item--underlined">
+                    <a class="income-history__link" href="" title="More details">
+                        <p  class="income-history__date">20 May, 1:23AM</p>
+                        <p  class="income-history__balance">
+                            <span>+ 800</span>
+                            <span class="icon icon--currency icon--usd">USD</span>
+                        </p>
+                    </a>
+                </li>
+            </ul>
+    </div>
+
+</div>
 
 
 

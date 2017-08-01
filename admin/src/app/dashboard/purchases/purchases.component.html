@@ -2,9 +2,14 @@
 
 
     <div class="purchases-header">
-
-        <button type="button" class="btn btn-secondary item-right" (click)="toggleAddPurchase()"> 
-            {{ !isAddPurchase ? 'Add' : 'Show list' }}
+        <button type="button" class="btn btn-secondary item-right" 
+*ngIf="isAddPurchase" 
+(click)="addPurchase()"> 
+    Save
+        </button>
+        <button type="button" class="btn btn-secondary item-right" 
+(click)="toggleAddPurchase()"> 
+{{ !isAddPurchase ? 'Add' : 'Show list' }}
         </button>
 
     </div>
@@ -27,7 +32,7 @@
                 <button type="button" class="btn btn-secondary purchase-btn" 
                     (click)="removePurchase(purchase)" > Remove </button>
 
-                <p> Id : 
+                <p> <span> Id : </span> 
                     <span 
                     *ngIf="!purchase.editPurchaseMode" > 
                     {{ purchase.id }} 
@@ -36,7 +41,7 @@
                     *ngIf="purchase.editPurchaseMode"
                     [(ngModel)]="purchase.id" >
                 </p>
-                <p> Order number : 
+                <p> <span> Order number : </span> 
                     <span 
                     *ngIf="!purchase.editPurchaseMode" > 
                     {{ purchase.orderNumber }} 
@@ -45,7 +50,7 @@
                     *ngIf="purchase.editPurchaseMode"
                     [(ngModel)]="purchase.orderNumber" >
                 </p>
-                <p> Discount checkbox : 
+                <p> <span> Discount checkbox : </span> 
                     <span 
                     *ngIf="!purchase.editPurchaseMode" > 
                     {{ purchase.discountCheckbox }} 
@@ -54,7 +59,7 @@
                     *ngIf="purchase.editPurchaseMode"
                     [(ngModel)]="purchase.discountCheckbox" >
                 </p>
-                <p> Gift Simple :
+                <p> <span> Gift Simple : </span> 
                     <span 
                     *ngIf="!purchase.editPurchaseMode" > 
                     {{ purchase.giftSimple }} 
@@ -63,7 +68,7 @@
                     *ngIf="purchase.editPurchaseMode"
                     [(ngModel)]="purchase.giftSimple" >
                 </p>
-                <p> Gift Rare :
+                <p> <span> Gift Rare : </span> 
                     <span 
                     *ngIf="!purchase.editPurchaseMode" > 
                     {{ purchase.giftRare }} 
@@ -72,7 +77,7 @@
                     *ngIf="purchase.editPurchaseMode"
                     [(ngModel)]="purchase.giftRare" >
                 </p>
-                <p> Gift Excellent :
+                <p> <span>  Gift Excellent : </span> 
                     <span 
                     *ngIf="!purchase.editPurchaseMode" > 
                     {{ purchase.giftExcellent }} 
@@ -81,7 +86,7 @@
                     *ngIf="purchase.editPurchaseMode"
                     [(ngModel)]="purchase.giftExcellent" >
                 </p>
-                <p> Package Image :
+                <p> <span> Package Image : </span>
                     <span 
                     *ngIf="!purchase.editPurchaseMode" > 
                     {{ purchase.packageImage }} 
@@ -95,12 +100,44 @@
 
         </div>
 
+        <div class="no-items"
+            *ngIf="!purchases || !purchases.length" >
+                there are no purchases
+        </div>
+
     </div>
 
 
     <div *ngIf="isAddPurchase" >
-
-        adding form
+      
+                <p> <span> Id : </span> 
+                    <input type="text" 
+                    [(ngModel)]="newPurchase.id" >
+                </p>
+                <p> <span> Order number : </span> 
+                    <input type="text" 
+                    [(ngModel)]="newPurchase.orderNumber" >
+                </p>
+                <p> <span> Discount checkbox : </span> 
+                    <input type="text" 
+                    [(ngModel)]="newPurchase.discountCheckbox" >
+                </p>
+                <p> <span> Gift Simple : </span> 
+                    <input type="text" 
+                    [(ngModel)]="newPurchase.giftSimple" >
+                </p>
+                <p> <span> Gift Rare : </span> 
+                    <input type="text" 
+                    [(ngModel)]="newPurchase.giftRare" >
+                </p>
+                <p> <span> Gift Excellent : </span> 
+                    <input type="text" 
+                    [(ngModel)]="newPurchase.giftExcellent" >
+                </p>
+                <p> <span> Package Image : </span> 
+                    <input type="text" 
+                    [(ngModel)]="newPurchase.packageImage" >
+                </p>
 
     </div>
 

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 
 @Component({
-  templateUrl: 'mobile-console.component.html'
+  templateUrl: './mobile-console.component.html'
 })
 export class MobileConsoleComponent {
 

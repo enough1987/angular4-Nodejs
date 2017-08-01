@@ -16,7 +16,6 @@
     padding-top: 70px;
 
     box-sizing: border-box;
-    //overflow-x: hidden;
 
     *,
     *:before,
@@ -39,33 +38,34 @@
 
 .icon {
     display: inline-block;
-    font-size: 0;
     vertical-align: middle;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
 
     &--currency {
-        width: 20px;
-        height: 20px;
+        font-size: 0;
+        width: 16px;
+        height: 16px;
+        margin-left: 8px;
         background-image: url("/assets/images/ico-dollar.png");
     }
 
     &--back {
-        width: 30px;
-        height: 30px;
+        width: 2.143em;
+        height: 2.143em;
         background-image: url("/assets/images/ico-back.png");
     }
 
-    &--reload {
-        width: 30px;
-        height: 30px;
+    &--history {
+        width: 2.143em;
+        height: 2.143em;
         background-image: url("/assets/images/ico-history-clock.png");  
     }
 }
 
 .sidebar-content {
-    padding-bottom: 20px;
+    padding-bottom: 1.429em;
     color: $marineblue;
     padding: 0 9%;
 }
@@ -82,9 +82,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0 20px;
-    padding-top: 30px;
-    padding-bottom: 10px;
+    padding: 0 1.429em;
+    padding-top: 2.143em;
+    padding-bottom: 0.7143em;
     background-color: $dark-two;
     color: white;
 
@@ -93,25 +93,26 @@
 .sidebar-footer {
     padding: 0 9%;
     margin-top: auto;
-    padding-bottom: 20px;
+    padding-bottom: 1.429em;
     min-height: 122px;
 
 
     .button {
         max-width: 340px;
         margin: 0 auto;
-        font-size: 18px;
+        font-size: 1.286em;
         line-height: 1;
         text-align: center;
-        padding: 19px 30px;
+        padding: 1em 2.143em;
+        text-transform: capitalize;
     }
 }
 
 .sidebar-footer__notification {
     width: 60%;
     margin: 0 auto;
-    margin-top: 20px;
-    font-size: 10px;
+    margin-top: 1.429em;
+    font-size: 0.7143em;
     text-align: center;
 
     .notification__link {
@@ -124,7 +125,7 @@
     font-family: 'OpenSans-Semibold';
     font-weight: 600;
     color: white;
-    font-size: 18px;
+    font-size: 1.286em;
     text-align: center;
     min-width: calc(100% - 60px);
 
@@ -134,10 +135,10 @@
 }
 
 .balance {
-    padding: 48px 9%;
+    padding: 3em 9%;
     background-color: $dark-two;
     color: $blue-grey-three;
-    font-size: 18px;
+    font-size: 1.286em;
     text-transform: capitalize;
 
     p, span {
@@ -147,7 +148,7 @@
     .balance__amount {
         margin-top: 6px;
         color: white;
-        font-size: 32px;
+        font-size: 2.286em;
         font-family: 'OpenSans-Semibold';
         font-weight: 600px;
     }
@@ -155,40 +156,29 @@
     .icon--currency {
         width: 22px;
         height: 22px;
-        margin-right: 16px;
+        margin-right: 1.143rem;
     }
 
-    @media screen and (max-height: 660px) {
-        padding: 24px 9%;
-    }
 }
 
 
 .faq__question {
-    font-size: 18px;
-    margin-top: 20px;
-    margin-bottom: 12px;
+    font-size: 1.286em;
+    margin-top: 1.429em;
+    margin-bottom: 0.8571em;
     font-family: 'OpenSans-Semibold';
     font-weight: 600px;
-
-    @media screen and (max-height: 660px) {
-        margin-top: 10px;
-        margin-bottom: 6px;
-    }
 }
 
 .faq__answer {
-    font-size: 16px;
-    margin: 14px 0;
+    font-size: 1.143em;
+    margin: 1em 0;
 
-    @media screen and (max-height: 660px) {
-        margin: 6px 0;
-    }
 }
 
 .withdraw__p {
-    margin: 18px 0;
-    font-size: 16px;
+    margin: 1em 0;
+    font-size: 1.143em;
     color: $main-dark;
     font-family: 'OpenSans-Light';
     font-weight: 300;
@@ -206,6 +196,7 @@
 
 input[type="radio"]:disabled + .withdraw__amount {
     opacity: 0.3;
+    cursor: auto;
 }
 
 input[type="radio"]:checked + .withdraw__amount {
@@ -214,59 +205,118 @@ input[type="radio"]:checked + .withdraw__amount {
 
 .withdraw__amount {
     display: block;
-    padding: 20px 0;
+    padding: 1em 0;
     font-family: 'OpenSans-Semibold';
     font-weight: 600; 
-    font-size: 18px;
+    font-size: 1.286em;
     line-height: 1;
 
     background-image: url("/assets/images/ico-half-arrow.png");
     background-repeat: no-repeat;
     background-position: right center;
-    background-size: 20px;
+    background-size: 16px;
+
+    cursor: pointer;
 
     span {
+        display: inline-block;
         vertical-align: middle;
     }
 
-    .icon---currency {
-        margin-right: 16px;
-    }
-
-
 }
 
-.table {
+.broadcast-details__item,
+.income-history__link {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    &--underlined {
+        padding:  1.429em 0;
+
+        &:not(:first-of-type) {
+            border-top: 0.7px solid transparentize($silver-three, 0.7);
+            margin-top: 0.7143em;
+        }
+    }
 }
 
-.table__name {
-    padding: 10px 0;
+.income-history__link {
+    padding-right: 24px;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 15px;
+    background-image: url("/assets/images/ico-half-arrow.png");
+}
+
+.broadcast-details__item-name {
+    padding: 0.7143em 0;
     text-align: left;
-    font-size: 18px;
+    font-size: 1.286em;
 }
 
-.table__value {
-    padding: 10px 0;
+.broadcast-details__item-value {
+    padding: 0.7143em 0;
     text-align: right;
     font-family: 'OpenSans-Semibold';
     font-weight: 600;
-    font-size: 18px;
+    font-size: 1.286em;
+
+    span {
+        display: inline-block;
+        vertical-align: middle;
+    }
 
 }
 
+.income-history__item {
+    padding:  0.7143em 0;
+
+    &:not(:first-of-type) {
+        border-top: 0.7px solid transparentize($silver-three, 0.7);
+    }
+}
+
+.income-history__month {
+    margin-top: 1.143em;
+    font-family: 'OpenSans-Light';
+    font-weight: 300;
+    font-size: 1.143em;
+    text-align: left;
+    color: $main-dark;
+}
+
+.income-history__date {
+    padding: 0.7143em 0;
+    text-align: left;
+    font-size: 1.143em;
+}
+
+.income-history__balance {
+    padding: 0.7143em 0;
+    text-align: right;
+    font-family: 'OpenSans-Semibold';
+    font-weight: 600;
+    font-size: 1.286em;
+
+    span {
+        display: inline-block;
+        vertical-align: middle;
+    } 
+}
+
 .income-history-item__detail {
-    margin: 32px 0;
+    margin: 2.286em 0;
 }
 
 
 .income-history-item__detail-name {
-    font-size: 14px;
+    font-size: 1em;
     color: $bluegrey-two;
 }
 
 .income-history-item__detail-value {
-    font-size: 18px;
+    font-size: 1.286em;
     margin: 8px 0;   
 
     .income-history-item__detail--amount & {
@@ -276,19 +326,14 @@ input[type="radio"]:checked + .withdraw__amount {
 
 }
 
-
-
-
-
-
 .withdraw-terms__subtitle {
     font-family: 'OpenSans-Bold';
-    font-size: 24px;
+    font-size: 1.714em;
     margin: 1em 0;
 }
 
 .withdraw-terms__p {
-    font-size: 16px;
+    font-size: 1.143em;
     line-height: 1.3;
 
 }

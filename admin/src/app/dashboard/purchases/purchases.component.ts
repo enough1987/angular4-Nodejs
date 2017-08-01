@@ -1,28 +1,41 @@
 import { Component } from '@angular/core';
 
 
+import { DashboardDataService } from "app/shared/dashboard-data.service";
+
+
 @Component({
-    templateUrl: 'purchases.component.html'
+    templateUrl: './purchases.component.html'
 })
 export class PurchasesComponent {
 
     purchases;
+    newPurchase = {};
     isAddPurchase: boolean = false;
 
-    constructor() {
-        this.purchases = [
-            { id: 1, orderNumber: "1", discountCheckbox: "1", packageImage: "1", giftSimple: 1, giftRare: 1, giftExcellent: 1 }, 
-            { id: 2, orderNumber: "2", discountCheckbox: "2", packageImage: "2", giftSimple: 2, giftRare: 2, giftExcellent: 2 }, 
-            { id: 3, orderNumber: "3", discountCheckbox: "3", packageImage: "3", giftSimple: 3, giftRare: 3, giftExcellent: 3 }, 
-            { id: 4, orderNumber: "4", discountCheckbox: "4", packageImage: "4", giftSimple: 4, giftRare: 4, giftExcellent: 4 }
-        ];
+    constructor(private dashboardDataService: DashboardDataService) {
+        this.dashboardDataService.getPurchases().subscribe((data) => {
+            this.purchases = data;
+        });
     }
 
     toggleAddPurchase() {
         this.isAddPurchase = !this.isAddPurchase;
     }
 
-
+    addPurchase() {
+        if ( this.newPurchase.constructor !== Object || (Object.keys(this.newPurchase).length < 6 ) ) {
+            console.log( this.newPurchase );
+            return;
+        }
+        this.dashboardDataService.addPurchase().subscribe((data)=>{
+            this.purchases.push(this.newPurchase);
+            this.newPurchase = {};
+            this.isAddPurchase = false;
+        }, (err)=>{
+            
+        });
+    }
 
     setEditPurchaseMode(purchase) {
         purchase.editPurchaseMode = true;

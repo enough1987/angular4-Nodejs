@@ -30,6 +30,7 @@ import { MobileConsoleComponent } from "app/dashboard/mobile-console/mobile-cons
 import { DashboardComponent } from "app/dashboard/dashboard.component";
 import { PurchasesComponent } from "app/dashboard/purchases/purchases.component";
 import { AuthService } from "app/shared/auth.service";
+import { DashboardDataService } from "app/shared/dashboard-data.service";
 import { LoginComponent } from "app/dashboard/login.component";
 
 
@@ -64,6 +65,7 @@ import { SafePipe } from "./shared/save.pipe";
   ],
   providers: [
     AuthService,
+    DashboardDataService,
     {
     provide: LocationStrategy,
     useClass: HashLocationStrategy
