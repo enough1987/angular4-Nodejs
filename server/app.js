@@ -35,9 +35,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+///////////////////////////////////////
+//app.use(express.static(path.join(__dirname, 'public/uploads')));
 ///////////////////////////////////////
 
+app.use('/api/purchases/*', require("./routes/purchases"));
 app.use('/', require('./routes/index'));
 // websocket api for mobile console
 require("./routes/mobile-console")(app);

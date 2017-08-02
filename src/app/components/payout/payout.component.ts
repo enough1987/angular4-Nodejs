@@ -72,11 +72,5 @@ export class PayoutComponent {
     });
   }
 
-  backToInit(){
-    this.router.navigate(['/payout/init']);
-  }
-
-
-
 
 }

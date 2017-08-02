@@ -120,10 +120,8 @@ router.post('/api/paypal/payout', function (req, res, next) {
   }
 });
 
-
-
 router.all('/*', function (req, res) {
-  res.json("{ 'err' : 'Not Found' }");
+  res.json("{ 'err' : 'Not Found fron index' }");
 });
 
 

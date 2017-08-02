@@ -5,6 +5,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { CommonModule } from '@angular/common'
 //  to use FormGroup, ngModel
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -30,7 +31,7 @@ import { MobileConsoleComponent } from "app/dashboard/mobile-console/mobile-cons
 import { DashboardComponent } from "app/dashboard/dashboard.component";
 import { PurchasesComponent } from "app/dashboard/purchases/purchases.component";
 import { AuthService } from "app/shared/auth.service";
-import { DashboardDataService } from "app/shared/dashboard-data.service";
+import { PurchasesService } from "app/shared/purchases.service";
 import { LoginComponent } from "app/dashboard/login.component";
 
 
@@ -43,6 +44,7 @@ import { SafePipe } from "./shared/save.pipe";
     BrowserModule,
     CommonModule,
     FormsModule,
+    HttpModule, 
     AppRoutingModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
@@ -65,7 +67,7 @@ import { SafePipe } from "./shared/save.pipe";
   ],
   providers: [
     AuthService,
-    DashboardDataService,
+    PurchasesService,
     {
     provide: LocationStrategy,
     useClass: HashLocationStrategy

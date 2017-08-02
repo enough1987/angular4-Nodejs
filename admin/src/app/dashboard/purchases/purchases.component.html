@@ -4,7 +4,7 @@
     <div class="purchases-header">
         <button type="button" class="btn btn-secondary item-right" 
 *ngIf="isAddPurchase" 
-(click)="addPurchase()"> 
+(click)="addPurchase(newPurchase)"> 
     Save
         </button>
         <button type="button" class="btn btn-secondary item-right" 
@@ -28,72 +28,100 @@
                     (click)="setEditPurchaseMode(purchase)" > Edit </button>
                 <button type="button" class="btn btn-secondary purchase-btn"
                     *ngIf="purchase.editPurchaseMode" 
-                    (click)="savePurchase(purchase)" > Save </button>
+                    (click)="editPurchase(purchase)" > Save </button>
                 <button type="button" class="btn btn-secondary purchase-btn" 
                     (click)="removePurchase(purchase)" > Remove </button>
 
-                <p> <span> Id : </span> 
-                    <span 
+                <p class="error-msg" 
+                *ngIf="purchase.error" > 
+                    Please, fix errors 
+                </p>   
+
+<p class="item-cntr" >
+    <img class="purchase-img"
+    *ngIf="purchase.imgUrl" 
+    [src]="purchase.imgUrl" >
+</p>
+<p class="item-cntr" 
+*ngIf="purchase.editPurchaseMode" >
+    <input type="file" (change)="purchasesService.fileChangeEvent($event, purchase)" placeholder="Upload file..." />
+</p>
+<!--
+<button type="button" (click)="purchasesService.upload()">Upload</button>
+-->
+
+
+                <p  class="flex item-cntr" > 
+                    <span class="item-title" > Id: </span> 
+                    <span  class="item-input" 
                     *ngIf="!purchase.editPurchaseMode" > 
                     {{ purchase.id }} 
                     </span>
-                    <input type="text" 
+                    <input type="text"  class="item-input"  
                     *ngIf="purchase.editPurchaseMode"
                     [(ngModel)]="purchase.id" >
                 </p>
-                <p> <span> Order number : </span> 
-                    <span 
+                <p  class="flex item-cntr" > 
+                    <span class="item-title" > Order: </span> 
+                    <span  class="item-input" 
                     *ngIf="!purchase.editPurchaseMode" > 
-                    {{ purchase.orderNumber }} 
+                    {{ purchase.order }} 
                     </span>
-                    <input type="text" 
+                    <input type="text" class="item-input" 
                     *ngIf="purchase.editPurchaseMode"
-                    [(ngModel)]="purchase.orderNumber" >
+                    [(ngModel)]="purchase.order" >
                 </p>
-                <p> <span> Discount checkbox : </span> 
-                    <span 
+                <p  class="flex item-cntr" > 
+                    <span class="item-title" > Discount: </span> 
+                    <span  class="item-input" 
                     *ngIf="!purchase.editPurchaseMode" > 
-                    {{ purchase.discountCheckbox }} 
+                    {{ purchase.discount }} 
                     </span>
-                    <input type="text" 
+                    <input type="text" class="item-input" 
                     *ngIf="purchase.editPurchaseMode"
-                    [(ngModel)]="purchase.discountCheckbox" >
+                    [(ngModel)]="purchase.discount" >
                 </p>
-                <p> <span> Gift Simple : </span> 
-                    <span 
-                    *ngIf="!purchase.editPurchaseMode" > 
-                    {{ purchase.giftSimple }} 
-                    </span>
-                    <input type="text" 
-                    *ngIf="purchase.editPurchaseMode"
-                    [(ngModel)]="purchase.giftSimple" >
-                </p>
-                <p> <span> Gift Rare : </span> 
-                    <span 
-                    *ngIf="!purchase.editPurchaseMode" > 
-                    {{ purchase.giftRare }} 
-                    </span>
-                    <input type="text" 
-                    *ngIf="purchase.editPurchaseMode"
-                    [(ngModel)]="purchase.giftRare" >
-                </p>
-                <p> <span>  Gift Excellent : </span> 
-                    <span 
-                    *ngIf="!purchase.editPurchaseMode" > 
-                    {{ purchase.giftExcellent }} 
-                    </span>
-                    <input type="text" 
-                    *ngIf="purchase.editPurchaseMode"
-                    [(ngModel)]="purchase.giftExcellent" >
-                </p>
-                <p> <span> Package Image : </span>
-                    <span 
+                <p  class="flex item-cntr" > 
+                    <span class="item-title" > Image: </span>
+                    <span class="item-input" 
                     *ngIf="!purchase.editPurchaseMode" > 
                     {{ purchase.packageImage }} 
                     </span>
-                    <input type="text" 
+                    <input type="text" class="item-input" 
                     *ngIf="purchase.editPurchaseMode"
                     [(ngModel)]="purchase.packageImage" >
+                </p>
+
+                <h5> Gift </h5>
+                <p  class="flex item-cntr" > 
+                    <span class="item-title" > Simple: </span> 
+                    <span  class="item-input" 
+                    *ngIf="!purchase.editPurchaseMode" > 
+                    {{ purchase.simple }} 
+                    </span>
+                    <input type="text"  class="item-input" 
+                    *ngIf="purchase.editPurchaseMode"
+                    [(ngModel)]="purchase.simple" >
+                </p>
+                <p  class="flex item-cntr" > 
+                    <span class="item-title" > Rare: </span> 
+                    <span  class="item-input" 
+                    *ngIf="!purchase.editPurchaseMode" > 
+                    {{ purchase.rare }} 
+                    </span>
+                    <input type="text" class="item-input" 
+                    *ngIf="purchase.editPurchaseMode"
+                    [(ngModel)]="purchase.rare" >
+                </p>
+                <p  class="flex item-cntr" > 
+                    <span class="item-title">  Excellent: </span> 
+                    <span class="item-input" 
+                    *ngIf="!purchase.editPurchaseMode" > 
+                    {{ purchase.excellent }} 
+                    </span>
+                    <input type="text" class="item-input"  
+                    *ngIf="purchase.editPurchaseMode"
+                    [(ngModel)]="purchase.excellent" >
                 </p>
 
             </div>
@@ -109,34 +137,59 @@
 
 
     <div *ngIf="isAddPurchase" >
+
+                <p class="error-msg" 
+                *ngIf="newPurchase.error" > 
+                    Please, fix errors 
+                </p>
+
+<p class="item-cntr" >
+    <img class="purchase-img"
+    *ngIf="newPurchase.imgUrl" 
+    [src]="newPurchase.imgUrl" >
+</p>
+<p class="item-cntr" >
+    <input type="file" (change)="purchasesService.fileChangeEvent($event, newPurchase)" placeholder="Upload file..." />
+</p>
+<!--
+<button type="button" (click)="purchasesService.upload()">Upload</button>
+-->
       
-                <p> <span> Id : </span> 
-                    <input type="text" 
+                <p class="flex item-cntr" > 
+                    <span class="item-title" > Id: </span> 
+                    <input type="text" class="item-input" 
                     [(ngModel)]="newPurchase.id" >
                 </p>
-                <p> <span> Order number : </span> 
-                    <input type="text" 
-                    [(ngModel)]="newPurchase.orderNumber" >
+                <p class="flex item-cntr" > 
+                    <span class="item-title" > Order: </span> 
+                    <input type="text" class="item-input" 
+                    [(ngModel)]="newPurchase.order" >
                 </p>
-                <p> <span> Discount checkbox : </span> 
-                    <input type="text" 
-                    [(ngModel)]="newPurchase.discountCheckbox" >
+                <p class="flex item-cntr" > 
+                    <span class="item-title" > Discount: </span> 
+                    <input type="text" class="item-input" 
+                    [(ngModel)]="newPurchase.discount" >
                 </p>
-                <p> <span> Gift Simple : </span> 
-                    <input type="text" 
-                    [(ngModel)]="newPurchase.giftSimple" >
-                </p>
-                <p> <span> Gift Rare : </span> 
-                    <input type="text" 
-                    [(ngModel)]="newPurchase.giftRare" >
-                </p>
-                <p> <span> Gift Excellent : </span> 
-                    <input type="text" 
-                    [(ngModel)]="newPurchase.giftExcellent" >
-                </p>
-                <p> <span> Package Image : </span> 
-                    <input type="text" 
+                <p class="flex item-cntr" > 
+                    <span class="item-title" > Image: </span> 
+                    <input type="text" class="item-input" 
                     [(ngModel)]="newPurchase.packageImage" >
+                </p>
+                <h5> Gift </h5>
+                <p class="flex item-cntr" > 
+                    <span class="item-title" > Simple: </span> 
+                    <input type="text" class="item-input"
+                    [(ngModel)]="newPurchase.simple" >
+                </p>
+                <p class="flex item-cntr" > 
+                    <span class="item-title" > Rare: </span> 
+                    <input type="text" class="item-input" 
+                    [(ngModel)]="newPurchase.rare" >
+                </p>
+                <p class="flex item-cntr" > 
+                    <span class="item-title" > Excellent: </span> 
+                    <input type="text" class="item-input" 
+                    [(ngModel)]="newPurchase.excellent" >
                 </p>
 
     </div>
