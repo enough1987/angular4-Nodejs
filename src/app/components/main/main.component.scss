@@ -507,3 +507,11 @@
     }
 
 }
+
+/* Fix for Edge*/
+@supports (-ms-ime-align:auto) {
+  .card__tumbnail,
+  .username__avatar {
+        border: 0.8px solid transparentize($pale-grey-two, 0.5);
+    }
+}

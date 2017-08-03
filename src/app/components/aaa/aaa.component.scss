@@ -180,20 +180,6 @@ app-main {
     min-width: 28px;
     padding: 0 4px;
     border-radius: 8px;
-
-
-    &:hover {
-        
-        .search-form {
-           // border-bottom: 1px solid $pale-grey;
-        }
-
-        .search-helper {
-            //display: block;
-            //transform: translateY(0);
-        }
-    }
-
 }
 
 .search-helper {
