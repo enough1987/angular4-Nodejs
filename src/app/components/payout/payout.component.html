@@ -74,7 +74,7 @@
             <p class="withdraw__p">Choose amount to withdraw</p>
             <ul  class="withdraw__options-list">
                 <li class="withdraw__option">
-                    <input name="amount" type="radio" value="200" id="amount" 
+                    <input class="withdraw__amount-radio-btn" name="amount" type="radio" value="200" id="amount" 
 #amount
 (click)="login(amount.value)" >
                     <label for="amount" class="withdraw__amount">
@@ -83,7 +83,7 @@
                         </label>
                 </li>
                 <li class="withdraw__option">
-                    <input name="amount" type="radio" value="300" id="amount2" 
+                    <input class="withdraw__amount-radio-btn" name="amount" type="radio" value="300" id="amount2" 
 #amount2 
 (click)="login(amount2.value)" >
                     <label for="amount2" class="withdraw__amount">
@@ -92,7 +92,7 @@
                     </label>
                 </li>
                 <li class="withdraw__option">
-                    <input name="amount" type="radio" value="400" id="amount3" 
+                    <input class="withdraw__amount-radio-btn" name="amount" type="radio" value="400" id="amount3" 
 #amount3
 (click)="login(amount3.value)"  >
                     <label for="amount3" class="withdraw__amount">
@@ -101,7 +101,7 @@
                     </label>
                 </li>
                 <li class="withdraw__option">
-                    <input name="amount" type="radio" value="400" id="amount4" disabled
+                    <input class="withdraw__amount-radio-btn" name="amount" type="radio" value="400" id="amount4" disabled
 #amount4 
 (click)="login(amount4.value)" >
                     <label for="amount4" class="withdraw__amount">
@@ -110,7 +110,7 @@
                     </label>
                 </li>
                 <li class="withdraw__option">
-                    <input name="amount" type="radio" value="100" id="amount5" disabled
+                    <input class="withdraw__amount-radio-btn" name="amount" type="radio" value="100" id="amount5" disabled
 #amount5
 (click)="login(amount5.value)" >
                     <label for="amount5" class="withdraw__amount">
@@ -223,7 +223,7 @@
 
     <header class="sidebar-header">
         <button class="small-btn icon icon--back"
-        [routerLink]="['/payout/history']"></button>
+[routerLink]="['/payout/history']"></button>
         <h1 class="sidebar-title"><span class="income-history-item__date">27 Jun</span> at <span class="income-history-item__time">9:33 АМ</span></h1>
     </header>
     <div class="sidebar-content">
@@ -276,7 +276,8 @@
     *ngIf=" id == 'history' " >
 
     <header class="sidebar-header">
-        <button class="small-btn icon icon--back"></button>
+        <button class="small-btn icon icon--back"
+[routerLink]="['/payout/init']" ></button>
         <h1 class="sidebar-title">History</h1>
     </header>
     <div class="sidebar-content  income-history">

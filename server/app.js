@@ -15,12 +15,10 @@ app.options('*', cors()); // for cors any
 ///////////////////////////////////////
 
 ///////////////////////////////////////
-
 process.on('uncaughtException', function (err) {
   console.error(err);
   console.log("Node has Error ...");
 })
-
 ///////////////////////////////////////
 
 
@@ -35,11 +33,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-///////////////////////////////////////
-//app.use(express.static(path.join(__dirname, 'public/uploads')));
-///////////////////////////////////////
 
-app.use('/api/purchases/*', require("./routes/purchases"));
+///////////////////////////////////////
+app.use('/api/paypal', require("./routes/paypal"));
+app.use('/api/purchases', require("./routes/purchases"));
+app.use('/api/gifts', require("./routes/gifts"));
 app.use('/', require('./routes/index'));
 // websocket api for mobile console
 require("./routes/mobile-console")(app);

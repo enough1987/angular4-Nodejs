@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
 
 
-import { ResourcesService } from "app/shared/resources.service";
+import { GiftsService } from "app/shared/gifts.service";
 
 
 @Component({
-    templateUrl: './purchases.component.html'
+    templateUrl: './gifts.component.html'
 })
-export class PurchasesComponent {
+export class GiftsComponent {
 
     resources;
     newResource: any = {};
     isAdd: boolean = false;
 
-    constructor(public resourcesService: ResourcesService) {
+    constructor(public resourcesService: GiftsService) {
         this.resourcesService.getAll().subscribe((data) => {
             this.resources = data;
         });
@@ -30,7 +30,6 @@ export class PurchasesComponent {
 
     add() {
         this.resourcesService.add(this.newResource).subscribe((data) => {
-            delete this.newResource.error;
             this.resources.push(this.newResource);
             this.toggleAdd();
         }, (err) => {

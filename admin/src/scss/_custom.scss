@@ -226,6 +226,22 @@ nav.sidebar-nav {
     max-width: 250px;
 }
 
+.switch-item {
+    min-width: 100px;
+    margin-right: 10px;
+}
+
+.switch-item:hover {
+    color: unset;
+    background-color: unset;
+    border-color: #ccc;
+}
+
+.switch-item.switch-active-btn , .switch-item.switch-active-btn:focus, .switch-item.switch-active-btn:focus {
+    background: #52b7e8;
+    color: white;
+}
+
 @media (max-width: 1300px) {
 
     .purchases-wrap {
@@ -251,5 +267,9 @@ nav.sidebar-nav {
     }
 
 }
+
+
+
+
 
 

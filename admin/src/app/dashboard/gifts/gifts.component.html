@@ -16,8 +16,6 @@
 
     <div *ngIf="!isAdd" >
 
-        <h4 class="purchase-h" > List of purchases : </h4>
-
         <div class="purchases-wrap scroll vh82">
 
             <div class="purchase" 
@@ -37,19 +35,32 @@
                     Please, fix errors 
                 </p>   
 
+
+
 <p class="item-cntr" >
     <img class="purchase-img"
     *ngIf="resource.imgUrl" 
     [src]="resource.imgUrl" >
 </p>
-<p class="item-cntr" 
+<p class="item-cntr"
 *ngIf="resource.editMode" >
-    <input type="file"  placeholder="Upload file..." 
+    <input type="file" placeholder="Upload img..."  
     (change)="resourcesService.fileChangeEvent($event, resource)" />
 </p>
-<!--
-<button type="button" (click)="resourcesService.upload()">Upload</button>
--->
+
+
+<p class="item-cntr" >
+    <img class="purchase-img"
+    *ngIf="resource.imgBigUrl" 
+    [src]="resource.imgBigUrl" >
+</p>
+<p class="item-cntr" 
+*ngIf="resource.editMode" >
+    <input type="file" placeholder="Upload big img..."  
+    (change)=" resourcesService.fileChangeEvent( $event, resource, 'imgBigUrl' ) " />
+</p>
+ 
+
 
                 <p  class="flex item-cntr" > 
                     <span class="item-title" > Id: </span> 
@@ -72,47 +83,41 @@
                     [(ngModel)]="resource.order" >
                 </p>
                 <p  class="flex item-cntr" > 
-                    <span class="item-title" > Discount: </span> 
+                    <span class="item-title" > Value: </span> 
                     <span  class="item-input" 
                     *ngIf="!resource.editMode" > 
-                    {{ resource.discount }} 
+                    {{ resource.value }} 
                     </span>
                     <input type="text" class="item-input" 
                     *ngIf="resource.editMode"
-                    [(ngModel)]="resource.discount" >
+                    [(ngModel)]="resource.value" >
                 </p>
 
-                <h5> Gift </h5>
-                <p  class="flex item-cntr" > 
-                    <span class="item-title" > Simple: </span> 
-                    <span  class="item-input" 
-                    *ngIf="!resource.editMode" > 
-                    {{ resource.simple }} 
-                    </span>
-                    <input type="text"  class="item-input" 
-                    *ngIf="resource.editMode"
-                    [(ngModel)]="resource.simple" >
-                </p>
-                <p  class="flex item-cntr" > 
-                    <span class="item-title" > Rare: </span> 
-                    <span  class="item-input" 
-                    *ngIf="!resource.editMode" > 
-                    {{ resource.rare }} 
-                    </span>
-                    <input type="text" class="item-input" 
-                    *ngIf="resource.editMode"
-                    [(ngModel)]="resource.rare" >
-                </p>
-                <p  class="flex item-cntr" > 
-                    <span class="item-title">  Excellent: </span> 
-                    <span class="item-input" 
-                    *ngIf="!resource.editMode" > 
-                    {{ resource.excellent }} 
-                    </span>
-                    <input type="text" class="item-input"  
-                    *ngIf="resource.editMode"
-                    [(ngModel)]="resource.excellent" >
-                </p>
+                <div class="flex item-cntr"  
+                    *ngIf="resource.editMode" >
+
+                    <input class="btn btn-secondary switch-item" type="button" value="Cool" 
+                    (click)="resourcesService.setProp(resource, 'type' , 'cool' )"
+                    [class.switch-active-btn]=" resource.type == 'cool' " />
+                    <input class="btn btn-secondary switch-item" type="button" value="Exciting" 
+                    (click)="resourcesService.setProp(resource, 'type' , 'exciting' )"
+                    [class.switch-active-btn]=" resource.type == 'exciting' " />
+                    <input class="btn btn-secondary switch-item" type="button" value="Fabulous" 
+                    (click)="resourcesService.setProp(resource, 'type' , 'fabulous' )"
+                    [class.switch-active-btn]=" resource.type == 'fabulous' " />
+
+                </div>
+
+                <div class="flex item-cntr"  
+                    *ngIf="!resource.editMode" >
+                    <input class="btn btn-secondary switch-item" type="button" value="Cool" 
+                    [class.switch-active-btn]=" resource.type == 'cool' " />
+                    <input class="btn btn-secondary switch-item" type="button" value="Exciting" 
+                    [class.switch-active-btn]=" resource.type == 'exciting' " />
+                    <input class="btn btn-secondary switch-item" type="button" value="Fabulous" 
+                    [class.switch-active-btn]=" resource.type == 'fabulous' " />
+
+                </div>
 
             </div>
 
@@ -133,20 +138,29 @@
                     Please, fix errors 
                 </p>
 
+
 <p class="item-cntr" >
     <img class="purchase-img"
     *ngIf="newResource.imgUrl" 
     [src]="newResource.imgUrl" >
 </p>
-<p class="item-cntr" 
-*ngIf="newResource.editMode"  >
-    <input type="file" placeholder="Upload file..."  
+<p class="item-cntr" >
+    <input type="file" placeholder="Upload img..."  
     (change)="resourcesService.fileChangeEvent($event, newResource)" />
 </p>
-<!--
-<button type="button" (click)="resourcesService.upload()">Upload</button>
--->
-      
+
+
+<p class="item-cntr" >
+    <img class="purchase-img"
+    *ngIf="newResource.imgBigUrl" 
+    [src]="newResource.imgBigUrl" >
+</p>
+<p class="item-cntr" >
+    <input type="file" placeholder="Upload big img..."  
+    (change)=" resourcesService.fileChangeEvent( $event, newResource, 'imgBigUrl' ) " />
+</p>
+ 
+
                 <p class="flex item-cntr" > 
                     <span class="item-title" > Id: </span> 
                     <input type="text" class="item-input" 
@@ -158,26 +172,24 @@
                     [(ngModel)]="newResource.order" >
                 </p>
                 <p class="flex item-cntr" > 
-                    <span class="item-title" > Discount: </span> 
+                    <span class="item-title" > Value: </span> 
                     <input type="text" class="item-input" 
-                    [(ngModel)]="newResource.discount" >
+                    [(ngModel)]="newResource.value" >
                 </p>
-                <h5> Gift </h5>
-                <p class="flex item-cntr" > 
-                    <span class="item-title" > Simple: </span> 
-                    <input type="text" class="item-input"
-                    [(ngModel)]="newResource.simple" >
-                </p>
-                <p class="flex item-cntr" > 
-                    <span class="item-title" > Rare: </span> 
-                    <input type="text" class="item-input" 
-                    [(ngModel)]="newResource.rare" >
-                </p>
-                <p class="flex item-cntr" > 
-                    <span class="item-title" > Excellent: </span> 
-                    <input type="text" class="item-input" 
-                    [(ngModel)]="newResource.excellent" >
-                </p>
+
+                <div class="flex item-cntr" >
+
+                    <input class="btn btn-secondary switch-item" type="button" value="Cool" 
+                    (click)="resourcesService.setProp(newResource, 'type' , 'cool' )"
+                    [class.switch-active-btn]=" newResource.type == 'cool' " />
+                    <input class="btn btn-secondary switch-item" type="button" value="Exciting" 
+                    (click)="resourcesService.setProp(newResource, 'type' , 'exciting' )"
+                    [class.switch-active-btn]=" newResource.type == 'exciting' " />
+                    <input class="btn btn-secondary switch-item" type="button" value="Fabulous" 
+                    (click)="resourcesService.setProp(newResource, 'type' , 'fabulous' )"
+                    [class.switch-active-btn]=" newResource.type == 'fabulous' " />
+
+                </div>
 
     </div>
 

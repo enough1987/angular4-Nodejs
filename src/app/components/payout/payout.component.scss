@@ -233,18 +233,14 @@
         border-bottom: 0.7px solid transparentize($silver-three, 0.7);
     }
 
-    input[type="radio"] {
+    .withdraw__amount-radio-btn {
         @include visually-hidden;
     }
 }
 
-input[type="radio"]:disabled + .withdraw__amount {
+.withdraw__amount-radio-btn:disabled + .withdraw__amount {
     opacity: 0.3;
     cursor: auto;
-}
-
-input[type="radio"]:checked + .withdraw__amount {
-   // opacity: 0.8;
 }
 
 .withdraw__amount {
