@@ -2,29 +2,15 @@
 @import "../../styles/variables.scss";
 @import "../../styles/mixins.scss";
 
-.wrapper {
+app-main {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: $bg-color;
-    font-family: 'Opensans', sans-serif;
-
-    box-sizing: border-box;
-
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    *,
-    *:before,
-    *:after {
-        box-sizing: inherit;
-    }
 }
 
-
 .site-header {
+    width: 100%;
+    min-width: 454px;
     .icon {
         fill: $slate;
         display: inline-block;
@@ -46,15 +32,10 @@
             }
         }
     }
-
-a:focus {
-    outline: none;
-}  
-
 }
 
-
 .main-header {
+    
     align-items: center;
     justify-content: space-between;
     width: auto;
@@ -63,12 +44,21 @@ a:focus {
 .site-header__top {
     min-height: 56px;
     padding: 0 36px;
+    z-index: 1000;
     background-color: $main-light;
     box-shadow: 0 2px 4px 0 $dark-blue-grey-10;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    min-width: 454px;
 }
 
 .site-header__bottom {
     padding: 0 36px;
+    padding-top: 56px;
     box-shadow: 0 2px 6px 0 rgba(236, 239, 241, 0.5);
 
 
@@ -88,6 +78,7 @@ a:focus {
     &:focus,
     &--active {
         color: $main-dark;
+        outline: none;
     }
 
     &--active {
@@ -121,8 +112,10 @@ a:focus {
         &:hover,
         &:focus,
         &:active {
+            outline: none;
             .download__text {
                 color: $link-color;
+                outline: none;
             }
             
         }
@@ -149,6 +142,7 @@ a:focus {
     &:active {
         .userblock__name {
                 color: $link-color;
+                outline: none;
         }
             
     }
@@ -214,10 +208,6 @@ a:focus {
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 2px 4px 0 rgba(5, 10, 16, 0.1);
-
-    .search-form__input:focus:valid + & {
-       display: block;
-    }
 }
 
 .search-helper__item {
@@ -231,12 +221,12 @@ a:focus {
 
 .search-form {
     position: relative;
-    z-index: 100;
+    z-index: 1000;
     display: flex;
     align-items: center;
 
     &__input {
-        width: 0;
+        display: none;
         padding: 9px;
         font-size: 16px;
         line-height: 22px;
@@ -272,6 +262,7 @@ a:focus {
 
 @media (max-width: 750px) {
     .searchblock {
+
         &--toggled {
         position: absolute;
         left: 64px;
@@ -281,14 +272,18 @@ a:focus {
         min-width: 250px;
         max-width: 440px;
 
-
-        .search-form {
-            width: 100%;
-
-            &__input {
+            .search-form {
                 width: 100%;
+
+                &__input {
+                    display: block;
+                    width: 100%;
+                }
             }
-        }
+
+            .search-form__input:focus:valid + .search-helper {
+                display: block;
+            }
         }
     }
 }
@@ -318,8 +313,13 @@ a:focus {
         .search-form {
             width: 100%;
             &__input {
+                display: block;
                 width: 100%;
             }
+        }
+
+        .search-form__input:focus:valid + .search-helper {
+            display: block;
         }
         
     }
@@ -330,8 +330,9 @@ a:focus {
 .site-sidebar {
     display: none;
     position: fixed;
-    top: 48px;
+    top: 52px;
     left: 8px;
+    z-index: 1000;
     height: auto;
     height: 505px;
     width: 240px;
@@ -344,13 +345,6 @@ a:focus {
 
     &--toggled {
         display: block;
-    }
-
-    .site-sidebar__title {
-        margin-top: 20px;
-        margin-bottom: 12px;
-        font-family: "OpenSans-Light", sans-serif;
-        font-weight: 300;
     }
 
     .site-navigation__item,
@@ -385,8 +379,7 @@ a:focus {
         &--active {
             color: $pink-second;
             background-color: $pale-grey-four;
-            //font-family: "OpenSans-Semibold", sans-serif;
-            //font-weight: 600;
+            outline: none;
 
             &::before {
                 background-color: $pink-second;
@@ -394,8 +387,9 @@ a:focus {
             }
         }
     }
+}
 
-    .site-sidebar__inner {
+.site-sidebar__inner {
         position: absolute;
         padding-left: 12px;
         padding-right: 32px;
@@ -424,6 +418,13 @@ a:focus {
 
     }
 
+    .site-sidebar__title {
+        margin-top: 20px;
+        margin-bottom: 12px;
+        font-family: "OpenSans-Light", sans-serif;
+        font-weight: 300;
+    }
+
 
     .categories-navigation__link {
         display: block;
@@ -442,6 +443,7 @@ a:focus {
         &--active {
             color: $pink-second;
             background-color: $pale-grey-four;
+            outline: none;
             span {
                color: $pink-second; 
             }
@@ -453,10 +455,14 @@ a:focus {
         color: $pink-second;
         padding: 4px 16px;
         margin: 14px 0;
+        &:hover,
+        &:focus,
+        &:active {
+            text-decoration: underline;
+            outline: none;
+        }
+
     }
-
-
-}
 
 @media (min-width: 1200px) {
     .site-sidebar {
@@ -465,6 +471,7 @@ a:focus {
         left: 0;
         bottom: 0;
         height: auto;
+        padding-top: 0;
 
         border-radius: 0;
         box-shadow: 0 2px 6px 0 $dark-blue-grey-10;
@@ -472,7 +479,8 @@ a:focus {
     }
 
     .site-sidebar__inner {
-
+        top: 17px;
+        border-top: none;
     }
 
     .site-header__bottom {

@@ -67,9 +67,17 @@
     overflow: hidden;
 }
 
+.site-content {
+    padding: 0 24px;
+}
+
 
 .feed {
     max-width: 1244px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     height: auto;
     margin: 0 auto;
 }
@@ -91,6 +99,7 @@
         position: absolute;
         right: 0;
         top: 50%;
+        z-index: 100;
         padding: 9px 3px;
         transition: width, height, right 0.5s;
 
@@ -153,25 +162,60 @@
         color: $pink;
     }
 
-    &:hover {
+    &:hover,
+    &:active,
+    &:focus {
         text-decoration: underline;
         text-decoration-skip: ink;
     }
 }
 
 .shelf__content {
+    position: relative;
+    overflow: hidden;
+    width: 250px;
+
+    @media (min-width: 548px) {
+        width: 500px;
+    }
+
+    @media (min-width: 798px) {
+        width: 750px;
+    }
+
+    @media (min-width: 1048px) and (max-width: 1200px) {
+        width: 1000px;
+
+    }
+
+    @media (min-width: 1310px) {
+        width: 1000px;
+    }
+
+    @media (min-width: 1532px) {
+        width: 1250px;
+    }
+}
+
+
+.shelf__content-inner {
+    //position: absolute;
+    //top: 0;
+    //left: 0;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-content: flex-start;
-    overflow: hidden;
+    width: 999999px;
 }
+
+
 
 
 .card {
     width: 210px;
     margin: 8px 20px;
-
+/*
     &:not(:nth-child(1)) {
         display: none;
     }
@@ -182,29 +226,35 @@
     //animation-name: fadeInRight;
 
 
-    @media (min-width: 492px) {
+    @media (min-width: 548px) {
         &:nth-child(-n+2) {
             display: block;
         }
     }
 
-    @media (min-width: 738px) {
+    @media (min-width: 798px) {
         &:nth-child(-n+3) {
             display: block;
         }
     }
 
-    @media (min-width: 984px) {
+    @media (min-width: 1048px) and (max-width: 1200px) {
         &:nth-child(-n+4) {
             display: block;
         }
     }
 
-    @media (min-width: 1230px) {
-        &:nth-child(-n+5) {
+    @media (min-width: 1310px) {
+        &:nth-child(-n+4) {
             display: block;
         }
     }
+
+    @media (min-width: 1532px) {
+        &:nth-child(-n+5) {
+            display: block;
+        }
+    }*/
 }
 
 .card__footer {
@@ -249,7 +299,9 @@
     color: $link-color;
     font-size: $font-size-small;
 
-    &:hover {
+    &:hover,
+    &:active,
+    &:focus {
        text-decoration: underline;
        text-decoration-skip: ink;        
     }
@@ -368,7 +420,9 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 
-    &:hover {
+    &:hover,
+    &:active,
+    &:focus {
         color: $link-color;
         text-decoration: underline;
         text-decoration-skip: ink;
@@ -397,6 +451,7 @@
     color: $slate;
 
     &:hover,
+    &:active,
     &:focus,
     &--active {
         color: $main-dark;
@@ -419,4 +474,12 @@
     .button--load-more {
         margin: 0 auto;
     }
+}
+
+@media (min-width: 1200px) {
+
+    .site-content {
+        padding-left: 264px;
+    }
+
 }
