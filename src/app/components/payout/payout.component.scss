@@ -288,6 +288,7 @@
 
 .income-history__link {
     padding-right: 24px;
+    padding-right: 24 / 736 * 100vmax;
     background-repeat: no-repeat;
     background-position: right center;
     background-size: 16px;
