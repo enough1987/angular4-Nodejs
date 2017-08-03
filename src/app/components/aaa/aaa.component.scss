@@ -103,7 +103,7 @@ app-main {
     font-size: 16px;
     min-width: 28px;
     height: 28px;
-    margin-left: 25px;
+    margin-left: auto;
 
     .download__link {
         display: block;
@@ -164,6 +164,11 @@ app-main {
 
 .logo {
     margin: 0 auto;
+    position: absolute;
+    top: 17px;
+    left: 50%;
+    transform: translatex(-50%);
+
     img {
         margin: 0;
     }
@@ -171,8 +176,8 @@ app-main {
 
 .searchblock {
     position: relative;
+    margin-right: auto;
     min-width: 28px;
-    min-height: 28px;
     padding: 0 4px;
     border-radius: 8px;
 
@@ -299,8 +304,10 @@ app-main {
     }
 
     .logo {
+        position: static;
         order: -1;
         margin: 0 20px;
+        transform: translatex(0);
     }
 
     .download {
