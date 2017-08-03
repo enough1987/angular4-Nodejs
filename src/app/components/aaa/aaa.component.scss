@@ -333,47 +333,29 @@ a:focus {
     top: 48px;
     left: 8px;
     height: auto;
+    height: 505px;
     width: 240px;
     background-color: white;
-    padding: 24px 12px;
     font-size: 16px;
     line-height: 1.5;
     border-radius: 12px;
-    box-shadow: 0 8px 16px 0 rgba(5, 10, 16, 0.2);
+    box-shadow: 0 6px 16px 2px rgba(5, 10, 16, 0.2);
+    overflow: hidden;
 
     &--toggled {
         display: block;
     }
 
-    &::before,
-    &::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        width: 100%;
-        height: 1px;
-        background-color: $pale-grey;
-    }
-
-    &::before {
-        top: 20px;
-    }
-
-    &::after {
-        bottom: 20px;
-    }
-
     .site-sidebar__title {
-        margin-top: 28px;
-        margin-bottom: 20px;
+        margin-top: 20px;
+        margin-bottom: 12px;
         font-family: "OpenSans-Light", sans-serif;
         font-weight: 300;
     }
 
     .site-navigation__item,
     .categories-navigation__item {
-        margin: 15px 0;
+        margin: 6px 0;
     }
 
     .site-navigation__link {
@@ -413,6 +395,36 @@ a:focus {
         }
     }
 
+    .site-sidebar__inner {
+        position: absolute;
+        padding-left: 12px;
+        padding-right: 32px;
+        left: 0;
+        top: 20px;
+        width: 260px;
+        height: 465px;
+        height: calc(100% - 40px);
+        overflow: auto;
+        border-top: 1px solid $pale-grey;
+        border-bottom: 1px solid $pale-grey;
+
+    &--toggled {
+        display: block;
+    }
+
+    &::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+      display: none;
+    }
+
+    &::-webkit-scrollbar-thumb {
+
+    }
+
+    }
+
+
     .categories-navigation__link {
         display: block;
         padding: 4px 16px;
@@ -436,7 +448,7 @@ a:focus {
         }
     }
 
-    .categories-navigation__more-link {
+    .categories-navigation__show-link {
         display: block;
         color: $pink-second;
         padding: 4px 16px;
@@ -452,18 +464,19 @@ a:focus {
         top: 56px;
         left: 0;
         bottom: 0;
+        height: auto;
 
         border-radius: 0;
         box-shadow: 0 2px 6px 0 $dark-blue-grey-10;
         
-        &::before,
-        &::after {
-            display: none;
-        }
+    }
+
+    .site-sidebar__inner {
+
     }
 
     .site-header__bottom {
         padding-left: 240px;
     }
 
-    }
+}
