@@ -65,13 +65,10 @@
 .hidden {
     display: none;
     overflow: hidden;
-<<<<<<< HEAD
 }
 
 .site-content {
     padding: 0 24px;
-=======
->>>>>>> 61774dae2da11322e547ecdfd89c50e63bb32977
 }
 
 
@@ -302,13 +299,9 @@
     color: $link-color;
     font-size: $font-size-small;
 
-<<<<<<< HEAD
     &:hover,
     &:active,
     &:focus {
-=======
-    &:hover {
->>>>>>> 61774dae2da11322e547ecdfd89c50e63bb32977
        text-decoration: underline;
        text-decoration-skip: ink;        
     }
@@ -477,7 +470,6 @@
     text-align: center;
 }
 
-<<<<<<< HEAD
 .site-footer__nav {
     display: flex;
     flex-direction: row;
@@ -499,8 +491,6 @@
     font-size: 14px;
 }
 
-=======
->>>>>>> 61774dae2da11322e547ecdfd89c50e63bb32977
 .button-wrapper {
     margin: 30px auto;
 
@@ -508,7 +498,6 @@
         margin: 0 auto;
     }
 }
-<<<<<<< HEAD
 
 @media (min-width: 1200px) {
 
@@ -526,5 +515,3 @@
         border: 0.8px solid transparentize($pale-grey-two, 0.5);
     }
 }
-=======
->>>>>>> 61774dae2da11322e547ecdfd89c50e63bb32977
