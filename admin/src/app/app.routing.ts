@@ -9,11 +9,11 @@ import { DashboardComponent } from "app/dashboard/dashboard.component";
 import { MobileConsoleComponent } from "app/dashboard/mobile-console/mobile-console.component";
 import { PurchasesComponent } from "app/dashboard/purchases/purchases.component";
 import { GiftsComponent } from "app/dashboard/gifts/gifts.component";
+import { ReportsListComponent } from "app/dashboard/report-list/report-list.component";
 import { LoginComponent } from "app/dashboard/login.component";
 
 
 import { AuthService } from "app/shared/auth.service";
-
 
 
 export const routes: Routes = [
@@ -65,6 +65,16 @@ export const routes: Routes = [
         path: 'dashboard/gifts/:id',
         component: GiftsComponent,
         data: { title : 'Gifts' }
+      },
+      {
+        path: 'dashboard/report-list',
+        component: ReportsListComponent,
+        data: { title : 'Reports List' }
+      },
+      {
+        path: 'dashboard/report-list/:id',
+        component: ReportsListComponent,
+        data: { title : 'Reports List' }
       }
     ]
   },
