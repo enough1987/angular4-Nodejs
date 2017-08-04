@@ -223,7 +223,7 @@
 
     <header class="sidebar-header">
         <button class="small-btn icon icon--back"
-        [routerLink]="['/payout/history']"></button>
+[routerLink]="['/payout/history']"></button>
         <h1 class="sidebar-title"><span class="income-history-item__date">27 Jun</span> at <span class="income-history-item__time">9:33 АМ</span></h1>
     </header>
     <div class="sidebar-content">
@@ -276,7 +276,8 @@
     *ngIf=" id == 'history' " >
 
     <header class="sidebar-header">
-        <button class="small-btn icon icon--back"></button>
+        <button class="small-btn icon icon--back"
+[routerLink]="['/payout/init']" ></button>
         <h1 class="sidebar-title">History</h1>
     </header>
     <div class="sidebar-content  income-history">

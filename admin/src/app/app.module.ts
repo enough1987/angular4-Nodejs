@@ -29,13 +29,20 @@ import { DashboardModule } from "app/dashboard/dashboard.module";
 import { MobileConsoleComponent } from "app/dashboard/mobile-console/mobile-console.component";
 import { DashboardComponent } from "app/dashboard/dashboard.component";
 import { PurchasesComponent } from "app/dashboard/purchases/purchases.component";
+import { GiftsComponent } from "app/dashboard/gifts/gifts.component";
 import { AuthService } from "app/shared/auth.service";
+<<<<<<< HEAD
 import { DashboardDataService } from "app/shared/dashboard-data.service";
+=======
+import { ResourcesService } from "app/shared/resources.service";
+>>>>>>> 61774dae2da11322e547ecdfd89c50e63bb32977
 import { LoginComponent } from "app/dashboard/login.component";
 
 
 import { SafePipe } from "./shared/save.pipe";
 
+
+import { GiftsService } from "app/shared/gifts.service";
 
 
 @NgModule({
@@ -59,13 +66,18 @@ import { SafePipe } from "./shared/save.pipe";
     MobileConsoleComponent,
     DashboardComponent ,
     PurchasesComponent,
+    GiftsComponent,
     LoginComponent,
-
     SafePipe
   ],
   providers: [
     AuthService,
+<<<<<<< HEAD
     DashboardDataService,
+=======
+    ResourcesService,
+    GiftsService,
+>>>>>>> 61774dae2da11322e547ecdfd89c50e63bb32977
     {
     provide: LocationStrategy,
     useClass: HashLocationStrategy

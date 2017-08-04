@@ -2,6 +2,7 @@
 
 
     <div class="purchases-header">
+<<<<<<< HEAD
         <button type="button" class="btn btn-secondary item-right" 
 *ngIf="isAddPurchase" 
 (click)="addPurchase()"> 
@@ -11,27 +12,44 @@
 (click)="toggleAddPurchase()"> 
 {{ !isAddPurchase ? 'Add' : 'Show list' }}
         </button>
+=======
+
+        <input type="button" class="btn btn-secondary item-right" 
+        value="Save"
+*ngIf="isAdd" 
+(click)="add()" > 
+
+        <input type="button" class="btn btn-secondary item-right" 
+(click)="toggleAdd()" 
+[value]=" !isAdd ? 'Add' : 'Show list' " > 
+>>>>>>> 61774dae2da11322e547ecdfd89c50e63bb32977
 
     </div>
 
-    <div *ngIf="!isAddPurchase" >
+    <div *ngIf="!isAdd" >
 
         <h4 class="purchase-h" > List of purchases : </h4>
 
         <div class="purchases-wrap scroll vh82">
 
             <div class="purchase" 
-                *ngFor="let purchase of purchases; let i = index;">
+                *ngFor="let resource of resources; let i = index;">
 
                 <button type="button" class="btn btn-secondary purchase-btn" 
-                    *ngIf="!purchase.editPurchaseMode"
-                    (click)="setEditPurchaseMode(purchase)" > Edit </button>
+                    *ngIf="!resource.editMode"
+                    (click)="setEditMode(resource)" > Edit </button>
                 <button type="button" class="btn btn-secondary purchase-btn"
+<<<<<<< HEAD
                     *ngIf="purchase.editPurchaseMode" 
                     (click)="savePurchase(purchase)" > Save </button>
+=======
+                    *ngIf="resource.editMode" 
+                    (click)="edit(resource)" > Save </button>
+>>>>>>> 61774dae2da11322e547ecdfd89c50e63bb32977
                 <button type="button" class="btn btn-secondary purchase-btn" 
-                    (click)="removePurchase(purchase)" > Remove </button>
+                    (click)="remove(resource)" > Remove </button>
 
+<<<<<<< HEAD
                 <p> <span> Id : </span> 
                     <span 
                     *ngIf="!purchase.editPurchaseMode" > 
@@ -94,6 +112,88 @@
                     <input type="text" 
                     *ngIf="purchase.editPurchaseMode"
                     [(ngModel)]="purchase.packageImage" >
+=======
+                <p class="error-msg" 
+                *ngIf="resource.error" > 
+                    Please, fix errors 
+                </p>   
+
+<p class="item-cntr" >
+    <img class="purchase-img"
+    *ngIf="resource.imgUrl" 
+    [src]="resource.imgUrl" >
+</p>
+<p class="item-cntr" 
+*ngIf="resource.editMode" >
+    <input type="file"  placeholder="Upload file..." 
+    (change)="resourcesService.fileChangeEvent($event, resource)" />
+</p>
+<!--
+<button type="button" (click)="resourcesService.upload()">Upload</button>
+-->
+
+                <p  class="flex item-cntr" > 
+                    <span class="item-title" > Id: </span> 
+                    <span  class="item-input" 
+                    *ngIf="!resource.editMode" > 
+                    {{ resource.id }} 
+                    </span>
+                    <input type="text"  class="item-input"  
+                    *ngIf="resource.editMode"
+                    [(ngModel)]="resource.id" >
+                </p>
+                <p  class="flex item-cntr" > 
+                    <span class="item-title" > Order: </span> 
+                    <span  class="item-input" 
+                    *ngIf="!resource.editMode" > 
+                    {{ resource.order }} 
+                    </span>
+                    <input type="text" class="item-input" 
+                    *ngIf="resource.editMode"
+                    [(ngModel)]="resource.order" >
+                </p>
+                <p  class="flex item-cntr" > 
+                    <span class="item-title" > Discount: </span> 
+                    <span  class="item-input" 
+                    *ngIf="!resource.editMode" > 
+                    {{ resource.discount }} 
+                    </span>
+                    <input type="text" class="item-input" 
+                    *ngIf="resource.editMode"
+                    [(ngModel)]="resource.discount" >
+                </p>
+
+                <h5> Gift </h5>
+                <p  class="flex item-cntr" > 
+                    <span class="item-title" > Simple: </span> 
+                    <span  class="item-input" 
+                    *ngIf="!resource.editMode" > 
+                    {{ resource.simple }} 
+                    </span>
+                    <input type="text"  class="item-input" 
+                    *ngIf="resource.editMode"
+                    [(ngModel)]="resource.simple" >
+                </p>
+                <p  class="flex item-cntr" > 
+                    <span class="item-title" > Rare: </span> 
+                    <span  class="item-input" 
+                    *ngIf="!resource.editMode" > 
+                    {{ resource.rare }} 
+                    </span>
+                    <input type="text" class="item-input" 
+                    *ngIf="resource.editMode"
+                    [(ngModel)]="resource.rare" >
+                </p>
+                <p  class="flex item-cntr" > 
+                    <span class="item-title">  Excellent: </span> 
+                    <span class="item-input" 
+                    *ngIf="!resource.editMode" > 
+                    {{ resource.excellent }} 
+                    </span>
+                    <input type="text" class="item-input"  
+                    *ngIf="resource.editMode"
+                    [(ngModel)]="resource.excellent" >
+>>>>>>> 61774dae2da11322e547ecdfd89c50e63bb32977
                 </p>
 
             </div>
@@ -101,13 +201,14 @@
         </div>
 
         <div class="no-items"
-            *ngIf="!purchases || !purchases.length" >
+            *ngIf="!resources || !resources.length" >
                 there are no purchases
         </div>
 
     </div>
 
 
+<<<<<<< HEAD
     <div *ngIf="isAddPurchase" >
       
                 <p> <span> Id : </span> 
@@ -137,6 +238,59 @@
                 <p> <span> Package Image : </span> 
                     <input type="text" 
                     [(ngModel)]="newPurchase.packageImage" >
+=======
+    <div *ngIf="isAdd" >
+
+                <p class="error-msg" 
+                *ngIf="newResource.error" > 
+                    Please, fix errors 
+                </p>
+
+<p class="item-cntr" >
+    <img class="purchase-img"
+    *ngIf="newResource.imgUrl" 
+    [src]="newResource.imgUrl" >
+</p>
+<p class="item-cntr" 
+*ngIf="newResource.editMode"  >
+    <input type="file" placeholder="Upload file..."  
+    (change)="resourcesService.fileChangeEvent($event, newResource)" />
+</p>
+<!--
+<button type="button" (click)="resourcesService.upload()">Upload</button>
+-->
+      
+                <p class="flex item-cntr" > 
+                    <span class="item-title" > Id: </span> 
+                    <input type="text" class="item-input" 
+                    [(ngModel)]="newResource.id" >
+                </p>
+                <p class="flex item-cntr" > 
+                    <span class="item-title" > Order: </span> 
+                    <input type="text" class="item-input" 
+                    [(ngModel)]="newResource.order" >
+                </p>
+                <p class="flex item-cntr" > 
+                    <span class="item-title" > Discount: </span> 
+                    <input type="text" class="item-input" 
+                    [(ngModel)]="newResource.discount" >
+                </p>
+                <h5> Gift </h5>
+                <p class="flex item-cntr" > 
+                    <span class="item-title" > Simple: </span> 
+                    <input type="text" class="item-input"
+                    [(ngModel)]="newResource.simple" >
+                </p>
+                <p class="flex item-cntr" > 
+                    <span class="item-title" > Rare: </span> 
+                    <input type="text" class="item-input" 
+                    [(ngModel)]="newResource.rare" >
+                </p>
+                <p class="flex item-cntr" > 
+                    <span class="item-title" > Excellent: </span> 
+                    <input type="text" class="item-input" 
+                    [(ngModel)]="newResource.excellent" >
+>>>>>>> 61774dae2da11322e547ecdfd89c50e63bb32977
                 </p>
 
     </div>
