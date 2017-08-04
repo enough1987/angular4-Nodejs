@@ -21,7 +21,7 @@ const AppRoutes: Routes = [
 
   { path: 'payout/:id',  component: PayoutComponent, data: { title: 'Payout' } }, // , canActivate: [AuthGuardService]
 
-  { path: 'welcome',  component: PayoutComponent, data: { title: 'Welcome' } }, // , canActivate: [AuthGuardService]
+  { path: 'welcome',  component: MainComponent, data: { title: 'Welcome' } }, // , canActivate: [AuthGuardService]
 
   { path: 'aaa',  component: AaaComponent, data: { title: 'aaa' } },  
   

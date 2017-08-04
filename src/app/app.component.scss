@@ -34,7 +34,7 @@ body {
     min-height: 100vh;
     min-width: 454px;
     background-color: $bg-color;
-    font-family: 'Opensans', sans-serif;
+    font-family: $main-font-family;
 
     box-sizing: border-box;
 
@@ -64,8 +64,19 @@ body {
     overflow: hidden;
 }
 
-.hidden {
-    display: none;
+.site-content {
+    padding: 0 24px;
+}
+
+
+
+@media (min-width: 1200px) {
+
+    .site-content,
+    .site-footer {
+        padding-left: 264px;
+    }
+
 }
 
 

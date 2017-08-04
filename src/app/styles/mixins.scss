@@ -38,3 +38,20 @@
     text-overflow: ellipsis;
   }
 }
+
+@mixin box {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px 0 $dark-blue-grey-10;
+}
+
+@mixin row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+@mixin column($columnwidth: 1, $columncount: 12, $gutter: 30px) {
+  width: calc(100% / #{$columncount} * #{$columnwidth} - #{$gutter});
+  margin: -1 * $gutter;
+}
