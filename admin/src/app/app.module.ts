@@ -31,7 +31,6 @@ import { MobileConsoleComponent } from "app/dashboard/mobile-console/mobile-cons
 import { DashboardComponent } from "app/dashboard/dashboard.component";
 import { PurchasesComponent } from "app/dashboard/purchases/purchases.component";
 import { GiftsComponent } from "app/dashboard/gifts/gifts.component";
-import { ReportsListComponent } from "app/dashboard/report-list/report-list.component";
 import { AuthService } from "app/shared/auth.service";
 import { ResourcesService } from "app/shared/resources.service";
 import { LoginComponent } from "app/dashboard/login.component";
@@ -43,9 +42,6 @@ import { SafePipe } from "./shared/save.pipe";
 import { GiftsService } from "app/shared/gifts.service";
 
 
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -55,8 +51,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     AppRoutingModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
-    ChartsModule ,
-    NgxDatatableModule
+    ChartsModule 
   ],
   declarations: [
     AppComponent,
@@ -70,7 +65,6 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     DashboardComponent ,
     PurchasesComponent,
     GiftsComponent,
-    ReportsListComponent, 
     LoginComponent,
     SafePipe
   ],
