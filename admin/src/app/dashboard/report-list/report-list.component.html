@@ -1,0 +1,165 @@
+<div class="animated fadeIn pad__top-middle dashboard-wrap vh90">
+
+
+    <div class="purchases-header">
+
+        <input type="button" class="btn btn-secondary item-right" value="Broadcasters" (click)=" setReportListId('broadcasters') ">
+
+        <input type="button" class="btn btn-secondary item-right" value="Chat reports" (click)=" setReportListId('chatReports') ">
+
+    </div>
+
+    <div class=" scroll vh82"
+    *ngIf=" id == 'broadcasters' ">
+
+    <!--
+            <div class="dashboard-table-header ">
+
+                <div class="dashboard-table-header__item " >
+                    User id
+                </div>
+
+                <div class="dashboard-table-header__item " >
+                    Room id
+                </div>
+
+                <div class="dashboard-table-header__item " >
+                    Reason
+                </div>
+
+                <div class="dashboard-table-header__item " >
+                    User Name
+                </div>
+
+                <div class="dashboard-table-header__item dashboard-table-header__item-info" >
+                </div>
+
+                <div class="dashboard-table-header__item dashboard-table-header__item-action" >
+                </div>
+
+            </div>
+
+            <div class="dashboard-table-body scroll vh76">
+
+                <div class="dashboard-table-body__row " 
+                *ngFor="let item of broadcasters ; let i = index" >
+
+                        <div class="dashboard-table-body__cell " >
+                            {{ item[0].userId }} 
+                        </div>
+
+                        <div class="dashboard-table-body__cell " >
+                            {{ item[0].roomId }}
+                        </div>
+
+                        <div class="dashboard-table-body__cell " >
+                            {{ item[0].reason }}
+                        </div>
+
+                        <div class="dashboard-table-body__cell " >
+                            {{ item[0].userName }}
+                        </div>
+                        <div class="dashboard-table-body__cell dashboard-table-body__cell-info" >
+                            {{ item.length }}
+                        </div>
+                        <div class="dashboard-table-body__cell dashboard-table-body__cell-action" >
+                            <img src="assets/img/if_arrow_up.svg" 
+                            class="dashboard-table-body__cell-img" 
+                            *ngIf=" item.length > 1 " />
+                            <img src="assets/img/if_arrow_up.svg" 
+                            class="dashboard-table-body__cell-img" 
+                            *ngIf=" item.length > 1 && false " />
+                        </div>
+
+                </div>
+
+            </div>
+    -->
+
+        <ngx-datatable
+            #myTable
+            class='material expandable'
+            [columnMode]="'ß'"
+            [headerHeight]="50"
+            [footerHeight]="0"
+            [rowHeight]="50"
+            [scrollbarV]="50"
+            [rows]='rows'
+            (page)="onPage($event)">
+
+            <!-- Row Detail Template -->
+<ngx-datatable-row-detail 
+    [rowHeight]="getHeight" 
+    #myDetailRow 
+    (toggle)="onDetailToggle($event)">
+  <ng-template let-row="row" ngx-datatable-row-detail-template>
+    <div><strong>Address</strong></div>
+    <div> {{ row }} </div>
+  </ng-template>
+</ngx-datatable-row-detail>
+
+            <!-- Column Templates -->
+            <ngx-datatable-column
+            [width]="50"
+            [resizeable]="false"
+            [sortable]="false"
+            [draggable]="false"
+            [canAutoResize]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template class="table-cell" >
+                <a
+                *ngIf=" row.length > 1 " 
+                src="#/dashboard/report-list"
+                [class.datatable-icon-right]="!row.$$expanded"
+                [class.datatable-icon-down]="row.$$expanded"
+                title="Expand/Collapse Row"
+                (click)="toggleExpandRow(row)">
+                +
+                </a>
+            </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="User Id" >
+            <ng-template let-row="row" ngx-datatable-cell-template class="table-cell" >
+                {{ row[0]?.userId }} 
+            </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Room Id" >
+            <ng-template let-row="row" ngx-datatable-cell-template class="table-cell">
+                {{ row[0]?.roomId }}
+            </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Reason" >
+            <ng-template let-row="row" ngx-datatable-cell-template class="table-cell" >
+                {{ row[0]?.reason }} 
+            </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="User Name" >
+            <ng-template let-row="row" ngx-datatable-cell-template class="table-cell" >
+                {{ row[0]?.userName }}
+            </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column  >
+            <ng-template let-row="row" ngx-datatable-cell-template class="table-cell" >
+                {{ row.length }}
+            </ng-template>
+            </ngx-datatable-column>
+
+        </ngx-datatable>
+
+    </div>
+
+    <div class=" scroll vh82"
+    *ngIf=" id == 'chatReports' ">
+
+
+            chat-reports
+
+
+    </div>
+
+
+</div>

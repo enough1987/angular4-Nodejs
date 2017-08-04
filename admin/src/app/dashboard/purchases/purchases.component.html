@@ -2,17 +2,6 @@
 
 
     <div class="purchases-header">
-<<<<<<< HEAD
-        <button type="button" class="btn btn-secondary item-right" 
-*ngIf="isAddPurchase" 
-(click)="addPurchase()"> 
-    Save
-        </button>
-        <button type="button" class="btn btn-secondary item-right" 
-(click)="toggleAddPurchase()"> 
-{{ !isAddPurchase ? 'Add' : 'Show list' }}
-        </button>
-=======
 
         <input type="button" class="btn btn-secondary item-right" 
         value="Save"
@@ -22,14 +11,11 @@
         <input type="button" class="btn btn-secondary item-right" 
 (click)="toggleAdd()" 
 [value]=" !isAdd ? 'Add' : 'Show list' " > 
->>>>>>> 61774dae2da11322e547ecdfd89c50e63bb32977
 
     </div>
 
     <div *ngIf="!isAdd" >
-
-        <h4 class="purchase-h" > List of purchases : </h4>
-
+        
         <div class="purchases-wrap scroll vh82">
 
             <div class="purchase" 
@@ -39,80 +25,11 @@
                     *ngIf="!resource.editMode"
                     (click)="setEditMode(resource)" > Edit </button>
                 <button type="button" class="btn btn-secondary purchase-btn"
-<<<<<<< HEAD
-                    *ngIf="purchase.editPurchaseMode" 
-                    (click)="savePurchase(purchase)" > Save </button>
-=======
                     *ngIf="resource.editMode" 
                     (click)="edit(resource)" > Save </button>
->>>>>>> 61774dae2da11322e547ecdfd89c50e63bb32977
                 <button type="button" class="btn btn-secondary purchase-btn" 
                     (click)="remove(resource)" > Remove </button>
 
-<<<<<<< HEAD
-                <p> <span> Id : </span> 
-                    <span 
-                    *ngIf="!purchase.editPurchaseMode" > 
-                    {{ purchase.id }} 
-                    </span>
-                    <input type="text" 
-                    *ngIf="purchase.editPurchaseMode"
-                    [(ngModel)]="purchase.id" >
-                </p>
-                <p> <span> Order number : </span> 
-                    <span 
-                    *ngIf="!purchase.editPurchaseMode" > 
-                    {{ purchase.orderNumber }} 
-                    </span>
-                    <input type="text" 
-                    *ngIf="purchase.editPurchaseMode"
-                    [(ngModel)]="purchase.orderNumber" >
-                </p>
-                <p> <span> Discount checkbox : </span> 
-                    <span 
-                    *ngIf="!purchase.editPurchaseMode" > 
-                    {{ purchase.discountCheckbox }} 
-                    </span>
-                    <input type="text" 
-                    *ngIf="purchase.editPurchaseMode"
-                    [(ngModel)]="purchase.discountCheckbox" >
-                </p>
-                <p> <span> Gift Simple : </span> 
-                    <span 
-                    *ngIf="!purchase.editPurchaseMode" > 
-                    {{ purchase.giftSimple }} 
-                    </span>
-                    <input type="text" 
-                    *ngIf="purchase.editPurchaseMode"
-                    [(ngModel)]="purchase.giftSimple" >
-                </p>
-                <p> <span> Gift Rare : </span> 
-                    <span 
-                    *ngIf="!purchase.editPurchaseMode" > 
-                    {{ purchase.giftRare }} 
-                    </span>
-                    <input type="text" 
-                    *ngIf="purchase.editPurchaseMode"
-                    [(ngModel)]="purchase.giftRare" >
-                </p>
-                <p> <span>  Gift Excellent : </span> 
-                    <span 
-                    *ngIf="!purchase.editPurchaseMode" > 
-                    {{ purchase.giftExcellent }} 
-                    </span>
-                    <input type="text" 
-                    *ngIf="purchase.editPurchaseMode"
-                    [(ngModel)]="purchase.giftExcellent" >
-                </p>
-                <p> <span> Package Image : </span>
-                    <span 
-                    *ngIf="!purchase.editPurchaseMode" > 
-                    {{ purchase.packageImage }} 
-                    </span>
-                    <input type="text" 
-                    *ngIf="purchase.editPurchaseMode"
-                    [(ngModel)]="purchase.packageImage" >
-=======
                 <p class="error-msg" 
                 *ngIf="resource.error" > 
                     Please, fix errors 
@@ -193,7 +110,6 @@
                     <input type="text" class="item-input"  
                     *ngIf="resource.editMode"
                     [(ngModel)]="resource.excellent" >
->>>>>>> 61774dae2da11322e547ecdfd89c50e63bb32977
                 </p>
 
             </div>
@@ -208,37 +124,6 @@
     </div>
 
 
-<<<<<<< HEAD
-    <div *ngIf="isAddPurchase" >
-      
-                <p> <span> Id : </span> 
-                    <input type="text" 
-                    [(ngModel)]="newPurchase.id" >
-                </p>
-                <p> <span> Order number : </span> 
-                    <input type="text" 
-                    [(ngModel)]="newPurchase.orderNumber" >
-                </p>
-                <p> <span> Discount checkbox : </span> 
-                    <input type="text" 
-                    [(ngModel)]="newPurchase.discountCheckbox" >
-                </p>
-                <p> <span> Gift Simple : </span> 
-                    <input type="text" 
-                    [(ngModel)]="newPurchase.giftSimple" >
-                </p>
-                <p> <span> Gift Rare : </span> 
-                    <input type="text" 
-                    [(ngModel)]="newPurchase.giftRare" >
-                </p>
-                <p> <span> Gift Excellent : </span> 
-                    <input type="text" 
-                    [(ngModel)]="newPurchase.giftExcellent" >
-                </p>
-                <p> <span> Package Image : </span> 
-                    <input type="text" 
-                    [(ngModel)]="newPurchase.packageImage" >
-=======
     <div *ngIf="isAdd" >
 
                 <p class="error-msg" 
@@ -290,7 +175,6 @@
                     <span class="item-title" > Excellent: </span> 
                     <input type="text" class="item-input" 
                     [(ngModel)]="newResource.excellent" >
->>>>>>> 61774dae2da11322e547ecdfd89c50e63bb32977
                 </p>
 
     </div>

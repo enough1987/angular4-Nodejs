@@ -33,17 +33,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-<<<<<<< HEAD
-
-///////////////////////////////////////
-
-=======
 
 ///////////////////////////////////////
 app.use('/api/paypal', require("./routes/paypal"));
 app.use('/api/purchases', require("./routes/purchases"));
 app.use('/api/gifts', require("./routes/gifts"));
->>>>>>> 61774dae2da11322e547ecdfd89c50e63bb32977
 app.use('/', require('./routes/index'));
 // websocket api for mobile console
 require("./routes/mobile-console")(app);

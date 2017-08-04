@@ -5,6 +5,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { CommonModule } from '@angular/common'
 //  to use FormGroup, ngModel
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -30,12 +31,9 @@ import { MobileConsoleComponent } from "app/dashboard/mobile-console/mobile-cons
 import { DashboardComponent } from "app/dashboard/dashboard.component";
 import { PurchasesComponent } from "app/dashboard/purchases/purchases.component";
 import { GiftsComponent } from "app/dashboard/gifts/gifts.component";
+import { ReportsListComponent } from "app/dashboard/report-list/report-list.component";
 import { AuthService } from "app/shared/auth.service";
-<<<<<<< HEAD
-import { DashboardDataService } from "app/shared/dashboard-data.service";
-=======
 import { ResourcesService } from "app/shared/resources.service";
->>>>>>> 61774dae2da11322e547ecdfd89c50e63bb32977
 import { LoginComponent } from "app/dashboard/login.component";
 
 
@@ -45,15 +43,20 @@ import { SafePipe } from "./shared/save.pipe";
 import { GiftsService } from "app/shared/gifts.service";
 
 
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+
+
 @NgModule({
   imports: [
     BrowserModule,
     CommonModule,
     FormsModule,
+    HttpModule, 
     AppRoutingModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
-    ChartsModule 
+    ChartsModule ,
+    NgxDatatableModule
   ],
   declarations: [
     AppComponent,
@@ -67,17 +70,14 @@ import { GiftsService } from "app/shared/gifts.service";
     DashboardComponent ,
     PurchasesComponent,
     GiftsComponent,
+    ReportsListComponent, 
     LoginComponent,
     SafePipe
   ],
   providers: [
     AuthService,
-<<<<<<< HEAD
-    DashboardDataService,
-=======
     ResourcesService,
     GiftsService,
->>>>>>> 61774dae2da11322e547ecdfd89c50e63bb32977
     {
     provide: LocationStrategy,
     useClass: HashLocationStrategy
