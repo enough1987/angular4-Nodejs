@@ -11,6 +11,10 @@
     font-weight: lighter;
 }
 
+a:focus {
+    outline: none;
+}
+
 body {
     min-width: 320px;
     font-size: 16px;
@@ -22,6 +26,28 @@ body {
         font-size: 14px;
     }
 
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 454px;
+    background-color: $bg-color;
+    font-family: $main-font-family;
+
+    box-sizing: border-box;
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    *,
+    *:before,
+    *:after {
+        box-sizing: inherit;
+    }
 }
 
 .visually-hidden {
@@ -38,8 +64,19 @@ body {
     overflow: hidden;
 }
 
-.hidden {
-    display: none;
+.site-content {
+    padding: 0 24px;
+}
+
+
+
+@media (min-width: 1200px) {
+
+    .site-content,
+    .site-footer {
+        padding-left: 264px;
+    }
+
 }
 
 

@@ -1,5 +1,139 @@
 <div class="wrapper">
 
+<header class="site-header">
+
+            <div class="site-header__top  main-header">
+                <div class="menu">
+                    <button class="small-btn sidebar-toggle" type="button" title="Open sidebar">
+                        <span class="visually-hidden">Open sidebar</span>
+                        <svg class="icon" width="16" height="12">
+                            <use xlink:href="assets/images/sprite.svg#ico-side-bar" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="searchblock">
+                    <!-- class "searchblock--toggled" to open search on mobile-->
+                    <form action="" class="search-form" method="get">
+                        <button class="small-btn small-btn--search" type="submit">
+                            <span class="visually-hidden">Search</span>
+                            <svg class="icon" width="21" height="20">
+                                <use xlink:href="assets/images/sprite.svg#ico-search" />
+                            </svg>
+                        </button>
+                        <input class="search-form__input" type="search" id="search-field" name="search-field" placeholder="Search" required>
+                        <ul class="search-helper">
+                        <li class="search-helper__item">ariana grande</li>
+                        <li class="search-helper__item">adele</li>
+                        <li class="search-helper__item">america got talent</li>
+                        <li class="search-helper__item">anhjhggh</li>
+                        <li class="search-helper__item">aghh</li>
+                        <li class="search-helper__item">amjklp</li>
+                        </ul>
+                    </form>
+                </div>
+                <div class="logo">
+                    <h1 class="visually-hidden">Fabulive</h1>
+                    <img class="main-header__img" title="Fabulive"
+                        [routerLink]="['/']"
+                    src="assets/images/ico_logo_pink.svg"
+                     />
+                </div>
+
+
+                <div class="download">
+                    <a href="" class="download__link">
+                        <svg class="icon" width="18" height="22">
+                            <use xlink:href="assets/images/sprite.svg#ico-mobile" />
+                        </svg>
+                        <span class="download__text">Download App</span>
+                        <svg class="icon  icon--down" width="7" height="4">
+                            <use xlink:href="assets/images/sprite.svg#ico-drop-down" />
+                        </svg>
+                    </a>
+                </div>
+
+
+                <div class="userblock">
+                    <a class="userblock__link" href="">
+                        <div class="userblock__avatar">
+                            <img src="assets/images/avatar-1.jpg"  width="28" height="28"  alt="">
+                        </div>
+                        <span class="userblock__name">Alex Gurinenko</span>
+                        <svg class="icon  icon--down" width="7" height="4">
+                            <use xlink:href="assets/images/sprite.svg#ico-drop-down" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="site-header__bottom">
+                <div class="site-navigation__wrapper">
+                    <nav class="site-navigation">
+                        <ul class="site-navigation__list">
+                            <li class="site-navigation__item"><a href="#" class="site-navigation__link">Home</a></li>
+                            <li class="site-navigation__item"><a href="#" class="site-navigation__link  site-navigation__link--active">Explore</a></li>
+                            <li class="site-navigation__item"><a href="#" class="site-navigation__link">Following</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+    </header>
+
+    <main class="site-content">
+
+    <aside class="site-sidebar site-sidebar--toggled">
+        <!-- class "site-sidebar--toggled" to display menu on mobile-->
+        <div class="site-sidebar__inner">
+        <div class="site-sidebar__track">
+
+        <nav class="site-navigation">
+                <ul class="site-navigation__list">
+                    <li class="site-navigation__item"><a href="#" class="site-navigation__link">Home</a></li>
+                    <li class="site-navigation__item"><a href="#" class="site-navigation__link  site-navigation__link--active">Explore</a></li>
+                    <li class="site-navigation__item"><a href="#" class="site-navigation__link">Following</a></li>
+                    <li class="site-navigation__item"><a href="#" class="site-navigation__link">My profile</a></li>
+                </ul>
+            </nav>
+            <div class="categories-navigation">
+                <h2 class="site-sidebar__title">Categories</h2>
+                <ul class="categories-navigation__list">
+                    <li class="categories-navigation__item">
+                        <a href="" class="categories-navigation__link">
+                            <span class="categories-navigation__category-name">Category 1</span>
+                            <span class="categories-navigation__category-number">(32)</span>
+                        </a>
+                    </li>
+                    <li class="categories-navigation__item">
+                        <a href="" class="categories-navigation__link">
+                            <span class="categories-navigation__category-name">Category 2</span>
+                            <span class="categories-navigation__category-number">(32)</span>
+                        </a>
+                    </li>
+                    <li class="categories-navigation__item">
+                        <a href="" class="categories-navigation__link">
+                            <span class="categories-navigation__category-name">Category 3</span>
+                            <span class="categories-navigation__category-number">(32)</span>
+                        </a>
+                    </li>
+                    <li class="categories-navigation__item">
+                        <a href="" class="categories-navigation__link">
+                            <span class="categories-navigation__category-name">Category 4</span>
+                            <span class="categories-navigation__category-number">(32)</span>
+                        </a>
+                    </li>
+                    <li class="categories-navigation__item">
+                        <a href="" class="categories-navigation__link">
+                            <span class="categories-navigation__category-name">Category 5</span>
+                            <span class="categories-navigation__category-number">(32)</span>
+                        </a>
+                    </li>
+                </ul>
+                <a href="" class="categories-navigation__show-link  categories-navigation__show-link--more">Show more</a>
+                <a href="" class="categories-navigation__show-link  categories-navigation__show-link--less hidden">Show less</a>
+            </div>
+            </div>
+        </div>
+    </aside>
 
     <div class="feed  feed--explore">
 
@@ -16,6 +150,7 @@
                     <a href="" class="see-all-link">See all (<span class="see-all-link__number">50</span>)</a>
                 </header>
                 <div class="shelf__content">
+                    <div class="shelf__content-inner">
 
 
 
@@ -227,7 +362,7 @@
                         </footer>
                     </article>
 
-
+                </div>
                 </div>
             </div>
         </div>
@@ -243,6 +378,7 @@
                     <a href="" class="see-all-link">See all (<span class="see-all-link__number">40</span>)</a>
                 </header>
                <div class="shelf__content">
+                   <div class="shelf__content-inner">
 
 
 
@@ -456,7 +592,7 @@
                         </footer>
                     </article>
 
-
+                </div>
                 </div>
             </div>
             <div class="shelf">
@@ -471,6 +607,7 @@
                     <a href="" class="see-all-link">See all (<span class="see-all-link__number">50</span>)</a> 
                 </header>
                <div class="shelf__content">
+                   <div class="shelf__content-inner">
 
 
 
@@ -683,7 +820,7 @@
                         </footer>
                     </article>
 
-
+                    </div>
                 </div>
             </div>
         </div>
@@ -691,10 +828,19 @@
             <button type="button" class="button button-pink button--load-more">Load more</button>
         </div>
     </div>
+</main>
 
-    <footer class="site-footer">
-        <div class="site-footer__inner">
+<footer class="site-footer">
+    <div class="site-footer__inner">
+        <ul class="site-footer__nav">
+            <li class="site-footer__nav-item"><a href="" class="site-footer__nav-link">About</a></li>
+            <li class="site-footer__nav-item"><a href="" class="site-footer__nav-link">Terms of Usage</a></li>
+            <li class="site-footer__nav-item"><a href="" class="site-footer__nav-link">Privacy Policy</a></li>
+        </ul>
+        <div class="site-footer__copyright">
+            <p>© 2017  Fabulive Ltd, All Rights Reserved</p>
         </div>
-    </footer>
-</div>
+    </div>
+</footer>
 
+</div>
