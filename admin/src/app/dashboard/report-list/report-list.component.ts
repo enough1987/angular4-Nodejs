@@ -1,4 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import { ActivatedRoute, Router } from "@angular/router";
+
+
+import { ReportsService } from "app/shared/reports.service";
 
 
 @Component({
@@ -7,45 +11,39 @@ import { Component, ViewChild } from '@angular/core';
 export class ReportsListComponent {
 
 
-    id: string = 'broadcasters';
+    id: string; // = 'broadcasters';
     rows;
     columns;
 
 
     @ViewChild('myTable') table: any;
 
+    constructor(private activatedRoute: ActivatedRoute, private router: Router,
+        private reportsService: ReportsService){    
+    }
+
+
     ngOnInit() {
 
-        this.rows = [
-            [
-                { userId: 1, roomId: 1, reason: " first one ", userName: 'Bob' }
-            ],
-            [
-                { userId: 2, roomId: 2, reason: " second one ", userName: 'John' },
-                { userId: 2, roomId: 2, reason: " second one ", userName: 'John' }
-            ],
-            [
-                { userId: 3, roomId: 3, reason: " first tree ", userName: 'Rev' }
-            ],
-            [
-                { userId: 4, roomId: 4, reason: " first 4 ", userName: 'Fal' }
-            ],
-            [
-                { userId: 5, roomId: 5, reason: " first 5 ", userName: 'Oda' }
-            ],
-            [
-                { userId: 6, roomId: 6, reason: " first 6 ", userName: 'Yee' }
-            ],
-            [
-                { userId: 7, roomId: 7, reason: " first 7 ", userName: 'VeLe' }
-            ],
-            [
-                { userId: 8, roomId: 8, reason: " first 8 ", userName: 'Max' }
-            ]
-        ];
+        const sub = this.activatedRoute.params.subscribe((params) => {
+            this.id = params['id'];
+            if ( this.id == 'broadcasters' ) {
+                this.rows = this.reportsService.getAllBroadcasters();
+                if( this.table ) this.table.bodyHeight = '78vh';
+            }  else if ( this.id == 'chatReports' ) {
+                this.rows = this.reportsService.getAllChatReports();
+                if( this.table ) this.table.bodyHeight = '78vh';
+            }  else {
+                console.log( " id : ", this.id );
+                this.router.navigate([ '/dashboard/report-list', 'broadcasters' ]);
+            } 
+        }); 
+
 
     }
 
+    ngAfterViewInit() {
+    }
 
     toggleExpandRow(row) {
         console.log('Toggled Expand Row!', row);
@@ -57,7 +55,13 @@ export class ReportsListComponent {
     }
 
     setReportListId(id) {
-        this.id = id;
+        //this.id = id;
+        this.router.navigate([ '/dashboard/report-list', id ]);
+    }
+
+
+    ban(item){
+        console.log( "item : ", item );
     }
 
 

@@ -10,6 +10,7 @@ import { MobileConsoleComponent } from "app/dashboard/mobile-console/mobile-cons
 import { PurchasesComponent } from "app/dashboard/purchases/purchases.component";
 import { GiftsComponent } from "app/dashboard/gifts/gifts.component";
 import { ReportsListComponent } from "app/dashboard/report-list/report-list.component";
+import { WithdrawListComponent } from "app/dashboard/withdraw-list/withdraw-list.component";
 import { LoginComponent } from "app/dashboard/login.component";
 
 
@@ -75,6 +76,16 @@ export const routes: Routes = [
         path: 'dashboard/report-list/:id',
         component: ReportsListComponent,
         data: { title : 'Reports List' }
+      },
+      {
+        path: 'dashboard/withdraw-list',
+        component: WithdrawListComponent,
+        data: { title : 'Withdraw List' }
+      },
+      {
+        path: 'dashboard/withdraw-list/:id',
+        component: WithdrawListComponent,
+        data: { title : 'Withdraw List' }
       }
     ]
   },

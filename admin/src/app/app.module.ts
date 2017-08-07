@@ -35,15 +35,17 @@ import { ReportsListComponent } from "app/dashboard/report-list/report-list.comp
 import { AuthService } from "app/shared/auth.service";
 import { ResourcesService } from "app/shared/resources.service";
 import { LoginComponent } from "app/dashboard/login.component";
-
+import { WithdrawListComponent } from "app/dashboard/withdraw-list/withdraw-list.component";
 
 import { SafePipe } from "./shared/save.pipe";
 
 
 import { GiftsService } from "app/shared/gifts.service";
-
+import { ReportsService } from "app/shared/reports.service";
+import { WithdrawService } from "app/shared/withdraw.service";
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+
 
 
 @NgModule({
@@ -72,12 +74,15 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     GiftsComponent,
     ReportsListComponent, 
     LoginComponent,
+    WithdrawListComponent,
     SafePipe
   ],
   providers: [
     AuthService,
     ResourcesService,
     GiftsService,
+    ReportsService,
+    WithdrawService,
     {
     provide: LocationStrategy,
     useClass: HashLocationStrategy
