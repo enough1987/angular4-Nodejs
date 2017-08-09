@@ -7,8 +7,8 @@
 
 * {
     color: $main-dark;
-    font-family: $main-font-family;
-    font-weight: lighter;
+    font-family: $main-font-family-light;
+    font-weight: 300;
 }
 
 a:focus {
@@ -17,6 +17,7 @@ a:focus {
 
 body {
     min-width: 320px;
+   // max-width: 1880px;
     font-size: 16px;
 }
 
@@ -33,6 +34,9 @@ body {
     flex-direction: column;
     min-height: 100vh;
     min-width: 454px;
+    max-width: 1880px;
+    margin: 0 auto;
+
     background-color: $bg-color;
     font-family: $main-font-family;
 
@@ -47,6 +51,7 @@ body {
     *:before,
     *:after {
         box-sizing: inherit;
+        color: inherit;
     }
 }
 
@@ -65,19 +70,9 @@ body {
 }
 
 .site-content {
-    padding: 0 24px;
+    padding: 0 18px;
 }
 
-
-
-@media (min-width: 1200px) {
-
-    .site-content,
-    .site-footer {
-        padding-left: 264px;
-    }
-
-}
 
 
 /* ******** */ 
@@ -219,7 +214,11 @@ body {
 
 .button-pink {
     border: 1px solid $pink;
-    color: $pink;   
+    color: $pink;
+    
+    .icon {
+        fill: $pink;
+    }
 }
 
 .button-pink-bgc {
