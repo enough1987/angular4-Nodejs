@@ -313,6 +313,10 @@ img.dashboard-table-body__cell-img {
     width: 25px;
 }
 
+img.dashboard-table-body__cell-img.dashboard-table-body__cell-img-small {
+    width: 15px;
+}
+
 .ngx-datatable.fixed-row .datatable-scroll .datatable-body-row .datatable-body-cell {
     padding-top: 10px;
 }

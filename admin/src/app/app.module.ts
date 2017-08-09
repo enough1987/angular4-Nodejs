@@ -44,8 +44,11 @@ import { SafePipe } from "./shared/save.pipe";
 import { GiftsService } from "app/shared/gifts.service";
 import { ReportsService } from "app/shared/reports.service";
 import { WithdrawService } from "app/shared/withdraw.service";
+import { UsersService } from "app/shared/users.services";
+
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+
 
 
 
@@ -87,6 +90,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     GiftsService,
     ReportsService,
     WithdrawService,
+    UsersService,
     {
     provide: LocationStrategy,
     useClass: HashLocationStrategy
