@@ -24,8 +24,8 @@ export class UsersService {
     getBanned() {
         return Observable.create(observer => {
             observer.next([
-            { userId: 1212, roomId: 123434, roomTime: 200, viewers: 1003, banned: true, warned: true },
-            { userId: 5567, roomId: 78787, roomTime: 500, viewers: 45, banned: true, warned: false }
+            { userId: 1212, banned: true, warned: true },
+            { userId: 5567, banned: true, warned: false }
         ]);
             observer.complete();
         });
@@ -34,8 +34,9 @@ export class UsersService {
     getIncome() {
         return Observable.create(observer => {
             observer.next([
-            { userId: 9888, roomId: 343455, roomTime: 2400, viewers: 10103, banned: false, warned: false },
-            { userId: 9987, roomId: 676767, roomTime: 5700, viewers: 4655, banned: false, warned: false }
+            { userId: 9888, roomId: 343455, roomTime: 2400, viewers: 10103, banned: false, warned: false, income: 100 },
+            { userId: 4444, roomId: 4545, roomTime: 241, viewers: 9999, banned: false, warned: false, income: 58 },
+            { userId: 9987, roomId: 676767, roomTime: 5700, viewers: 4655, banned: false, warned: false, income: 0 }
         ]);
             observer.complete();
         });
