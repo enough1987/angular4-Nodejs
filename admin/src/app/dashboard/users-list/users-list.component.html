@@ -1,0 +1,30 @@
+
+
+<div class="animated fadeIn pad__top-middle dashboard-wrap vh90">
+
+
+    <div class="purchases-header">
+
+        <input type="button" class="btn btn-secondary item-right" value="Live" 
+        [class.console__tab-item__is-active]=" id == 'live' "
+            (click)=" setList('live') ">
+
+        <input type="button" class="btn btn-secondary item-right" value="Banned" 
+        [class.console__tab-item__is-active]=" id == 'banned' "
+            (click)=" setList('banned') ">
+
+        <input type="button" class="btn btn-secondary item-right" value="Income" 
+        [class.console__tab-item__is-active]=" id == 'income' "
+            (click)=" setList('income') ">
+
+    </div>
+
+    <div class=" scroll vh82" *ngIf=" id == 'live' || id == 'banned' || id == 'income' ">
+
+        table
+
+    </div>
+
+
+</div>
+

@@ -12,9 +12,11 @@ import { GiftsComponent } from "app/dashboard/gifts/gifts.component";
 import { ReportsListComponent } from "app/dashboard/report-list/report-list.component";
 import { WithdrawListComponent } from "app/dashboard/withdraw-list/withdraw-list.component";
 import { LoginComponent } from "app/dashboard/login.component";
+import { UsersListComponent } from "app/dashboard/users-list/users-list.component";
 
 
 import { AuthService } from "app/shared/auth.service";
+
 
 
 export const routes: Routes = [
@@ -86,6 +88,16 @@ export const routes: Routes = [
         path: 'dashboard/withdraw-list/:id',
         component: WithdrawListComponent,
         data: { title : 'Withdraw List' }
+      },
+      {
+        path: 'dashboard/users-list',
+        component: UsersListComponent,
+        data: { title : 'Users List' }
+      },
+      {
+        path: 'dashboard/users-list/:id',
+        component: UsersListComponent,
+        data: { title : 'Users List' }
       }
     ]
   },

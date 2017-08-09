@@ -36,6 +36,7 @@ import { AuthService } from "app/shared/auth.service";
 import { ResourcesService } from "app/shared/resources.service";
 import { LoginComponent } from "app/dashboard/login.component";
 import { WithdrawListComponent } from "app/dashboard/withdraw-list/withdraw-list.component";
+import { UsersListComponent } from "app/dashboard/users-list/users-list.component";
 
 import { SafePipe } from "./shared/save.pipe";
 
@@ -45,6 +46,8 @@ import { ReportsService } from "app/shared/reports.service";
 import { WithdrawService } from "app/shared/withdraw.service";
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+
+
 
 
 
@@ -75,6 +78,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     ReportsListComponent, 
     LoginComponent,
     WithdrawListComponent,
+    UsersListComponent,
     SafePipe
   ],
   providers: [
