@@ -14,6 +14,7 @@ export class UsersListComponent {
     id;
     rows;
     users;
+    isSearch: boolean;
 
     constructor(private activatedRoute: ActivatedRoute, private router: Router,
         private usersService: UsersService) {
@@ -57,11 +58,27 @@ export class UsersListComponent {
         this.router.navigate(['/dashboard/users-list', id]);
     }
 
+    search(value) {
+        console.log('value');
+        if ( !value ) {
+            this.isSearch = false;
+            this.setRows();
+        }
+        this.usersService.search(value).subscribe((data) => {
+            this.isSearch = true;
+            this.rows = data;
+        });
+    }
+
     ban(row) {
         console.log(row);
     }
 
     warn(row) {
+        console.log(row);
+    }
+
+    unban(row) {
         console.log(row);
     }
 

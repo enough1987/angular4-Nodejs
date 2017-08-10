@@ -1,0 +1,86 @@
+
+
+<div class="animated fadeIn pad__top-middle dashboard-wrap vh90">
+
+
+    <div class="dashboard-search-wrap" >   
+        <input type="text" class="dashboard-search" placeholder="search" 
+        #searchInput
+        (keyup.enter)="search(searchInput.value)" 
+        (blur)="search(searchInput.value)" >
+    </div>
+
+    <div class="dashboard-header">
+
+        <input type="button" class="btn btn-secondary item-right" value="main info" 
+        [class.console__tab-item__is-active]=" type == 'info' "
+            (click)=" setType('info') ">
+
+        <input type="button" class="btn btn-secondary item-right" value="gifts history" 
+        [class.console__tab-item__is-active]=" type == 'history' "
+            (click)=" setType('history') ">
+
+    </div>
+
+
+    <div class=" scroll vh82" *ngIf=" type == 'info' " >
+
+        <div>
+
+            <div class="profile-row"  >
+                <label class="profile-label" > Id </label>
+                <input class="profile-input" type="text" />
+            </div>
+
+            <div class="profile-row"  >
+                <label class="profile-label" > Name </label>
+                <input class="profile-input" type="text" />
+            </div>
+
+            <div class="profile-row"  >
+                <label class="profile-label" > Info </label>
+                <input class="profile-input" type="text" />
+            </div>
+
+            <div class="profile-row"  >
+                <label class="profile-label" > Email </label>
+                <input class="profile-input" type="text" />
+            </div>
+
+            <div class="profile-row"  >
+                <label class="profile-label" > Website </label>
+                <input class="profile-input" type="text" />
+            </div>
+
+            <div class="profile-row"  >
+                <label class="profile-label" > Gender </label>
+                <input class="profile-input" type="text" />
+            </div>
+
+            <div class="profile-row"  >
+                <label class="profile-label" > Location </label>
+                <input class="profile-input" type="text" />
+            </div>
+
+            <div class="profile-row"  >
+                <label class="profile-label" > Graduate </label>
+                <input class="profile-input" type="text" />
+            </div>
+
+            <div class="profile-row"  >
+                <label class="profile-label" > Work </label>
+                <input class="profile-input" type="text" />
+            </div>
+
+            <div class="profile-row"  >
+
+                <input type="button" class="btn btn-secondary" value="ban avatar" />
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>

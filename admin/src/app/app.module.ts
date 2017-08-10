@@ -24,8 +24,6 @@ import { AppRoutingModule } from './app.routing';
 import { FullLayoutComponent } from './layouts/full-layout.component';
 
 
-import { DashboardModule } from "app/dashboard/dashboard.module";
-
 
 import { MobileConsoleComponent } from "app/dashboard/mobile-console/mobile-console.component";
 import { DashboardComponent } from "app/dashboard/dashboard.component";
@@ -37,6 +35,8 @@ import { ResourcesService } from "app/shared/resources.service";
 import { LoginComponent } from "app/dashboard/login.component";
 import { WithdrawListComponent } from "app/dashboard/withdraw-list/withdraw-list.component";
 import { UsersListComponent } from "app/dashboard/users-list/users-list.component";
+import { ProfileComponent } from "app/dashboard/profile/profile.component";
+
 
 import { SafePipe } from "./shared/save.pipe";
 
@@ -48,10 +48,6 @@ import { UsersService } from "app/shared/users.services";
 
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-
-
-
-
 
 
 @NgModule({
@@ -82,6 +78,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     LoginComponent,
     WithdrawListComponent,
     UsersListComponent,
+    ProfileComponent,
     SafePipe
   ],
   providers: [

@@ -161,7 +161,7 @@ nav.sidebar-nav {
     
 }
 
-.purchases-header {
+.purchases-header, .dashboard-header {
     padding: 1%;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -522,6 +522,48 @@ img.dashboard-table-body__cell-img-in {
     }
 
 }
+
+
+
+.dashboard-header {
+    padding: 1%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    justify-content: flex-end;
+}
+
+.dashboard-search-wrap {
+    padding: 15px;
+    .dashboard-search {
+        width: 200px;
+    }
+}
+
+.btn-secondary {
+    min-width: 65px;
+}
+
+.btn-warn, .btn-warn:hover {
+    padding: 0px 2px;
+    color: #ccd0bd;
+    border: 1px solid #ccd0bd;    
+}
+
+
+.btn-unban, .btn-unban:hover {
+    padding: 0px 2px;  
+}
+
+.profile-label {
+    min-width: 150px;
+    padding-left: 5px;
+}
+
+.profile-input {
+    min-width: 150px;   
+}
+
+
 
 
 

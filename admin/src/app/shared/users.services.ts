@@ -7,6 +7,28 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class UsersService {
 
+    getById(id){
+        return Observable.create(observer => {
+            observer.next({ 
+                live: true, userId: 5567, roomId: 78787, 
+                roomTime: 500, viewers: 45, banned: false, warned: false 
+            });
+            observer.complete();
+        });
+    }
+
+    search(value){
+        return Observable.create(observer => {
+            observer.next([
+            { live: true, userId: 1212, roomId: 123434, roomTime: 200, viewers: 1003, banned: false, warned: false },
+            { live: false, userId: 2323, roomId: 23445, roomTime: 500, viewers: 143, banned: false, warned: false },
+            { live: false, userId: 3434, roomId: 4545, roomTime: 700, viewers: 1, banned: true, warned: false },
+            { live: false, userId: 4545, roomId: 76767, roomTime: 800, viewers: 100300, banned: true, warned: true },
+            { live: true, userId: 5567, roomId: 78787, roomTime: 500, viewers: 45, banned: false, warned: false }
+        ]);
+            observer.complete();
+        });
+    }
 
     getLive() {
         return Observable.create(observer => {
@@ -24,8 +46,8 @@ export class UsersService {
     getBanned() {
         return Observable.create(observer => {
             observer.next([
-            { userId: 1212, banned: true, warned: true },
-            { userId: 5567, banned: true, warned: false }
+            { userId: 1212, roomId: 2, reason: " second one ", complainant: 'John', banned: true, warned: true },
+            { userId: 5567, roomId: 2, reason: " second one ", complainant: 'John', banned: true, warned: false }
         ]);
             observer.complete();
         });
@@ -41,5 +63,6 @@ export class UsersService {
             observer.complete();
         });
     }
+
 
 }

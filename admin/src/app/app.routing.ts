@@ -13,10 +13,10 @@ import { ReportsListComponent } from "app/dashboard/report-list/report-list.comp
 import { WithdrawListComponent } from "app/dashboard/withdraw-list/withdraw-list.component";
 import { LoginComponent } from "app/dashboard/login.component";
 import { UsersListComponent } from "app/dashboard/users-list/users-list.component";
+import { ProfileComponent } from "app/dashboard/profile/profile.component";
 
 
 import { AuthService } from "app/shared/auth.service";
-
 
 
 export const routes: Routes = [
@@ -98,6 +98,21 @@ export const routes: Routes = [
         path: 'dashboard/users-list/:id',
         component: UsersListComponent,
         data: { title : 'Users List' }
+      },
+      {
+        path: 'dashboard/profile',
+        component: ProfileComponent,
+        data: { title : 'Profile' }
+      },
+      {
+        path: 'dashboard/profile/:type',
+        component: ProfileComponent,
+        data: { title : 'Profile' }
+      },
+      {
+        path: 'dashboard/profile/:type/:id',
+        component: ProfileComponent,
+        data: { title : 'Profile' }
       }
     ]
   },
