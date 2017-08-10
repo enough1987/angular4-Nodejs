@@ -16,6 +16,7 @@ export class UsersListComponent {
     users;
     isSearch: boolean;
 
+
     constructor(private activatedRoute: ActivatedRoute, private router: Router,
         private usersService: UsersService) {
     }

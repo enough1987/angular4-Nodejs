@@ -560,7 +560,37 @@ img.dashboard-table-body__cell-img-in {
 }
 
 .profile-input {
-    min-width: 150px;   
+    min-width: 300px;   
+}
+
+.btn-middle {
+    min-width: 150px;      
+}
+
+.profile-table__header-row, .profile-table__body-row, 
+.profile-table__header-details-row, .profile-table__body-details-row {
+    display: -webkit-flex;
+    display: flex;
+    justify-content: flex-start; 
+}
+
+.profile-table__details {
+    border: 1px solid #eceff3 ;
+    -webkit-box-shadow:inset 1px 1px 10px 1px #eceff3;
+    box-shadow:inset 1px 1px 10px 1px #eceff3;
+}
+
+.profile-table-cell {
+    padding: 5px;
+}
+
+.profile-table__header-small , .profile-table__body-small {
+    width: 50px;
+}
+
+.profile-table__header-cell , .profile-table__body-cell {
+    min-width: 400px;
+    width: 40%;
 }
 
 

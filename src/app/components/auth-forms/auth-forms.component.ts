@@ -18,7 +18,7 @@ import { TypeOfModal, ModalsService, AuthService } from "app/index";
 export class AuthFormsComponent {
 
 
-  private emailPattern: string = "[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}"; // it is used as pattern for email
+  private emailPattern: string = "[a-zA-Z_0-9]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}"; // it is used as pattern for email
   private namePattern: string = "[a-zA-Z0-9\x20]{3,30}"; // it is used as pattern for fullname
   private passPattern: string = "^.*(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])[a-zA-Z0-9@#$%^&+=]*$"; // it is used as pattern for password
 

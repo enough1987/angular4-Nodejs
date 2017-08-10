@@ -10,9 +10,37 @@ export class UsersService {
     getById(id){
         return Observable.create(observer => {
             observer.next({ 
-                live: true, userId: 5567, roomId: 78787, 
-                roomTime: 500, viewers: 45, banned: false, warned: false 
+                id: 1212, name: "Sasha", info: " test test", 
+                email: "sasha@gmail.com", website: "sasha.com", 
+                gender: "men", lacation: "Kiev", graduate: 100, 
+                work: "streamteh"
             });
+            observer.complete();
+        });
+    }
+
+    getGiftsbyId(id){
+        return Observable.create(observer => {
+            observer.next([
+                { sessionId: 1212, sum: 100, users: [
+                    { user: 343434, sum: 20 }, 
+                    { user: 222222, sum: 50 }, 
+                    { user: 555555, sum: 30 }
+                ]},
+                { sessionId: 4444, sum: 300, users: [
+                    { user: 343434, sum: 120 }, 
+                    { user: 222222, sum: 150 }, 
+                    { user: 555555, sum: 30 }
+                ]},
+                { sessionId: 1212, sum: 1500, users: [
+                    { user: 343434, sum: 120 }, 
+                    { user: 222222, sum: 550 }, 
+                    { user: 555555, sum: 830 }
+                ]},
+                { sessionId: 881212, sum: 500, users: [
+                    { user: 555555, sum: 500 }
+                ]}            
+            ]);
             observer.complete();
         });
     }
