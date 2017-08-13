@@ -48,16 +48,17 @@ export class GiftsService extends ResourcesService {
         });
     }
 
-    isValid(resource) {
-        let valid: boolean = true;
-        if ( ! resource.id ) valid = false;
-        if ( ! /^[0-9]{1,3}$/.test(resource.order) && resource.order ) valid = false;
-        if ( ! /^[0-9]{1,1000}$/.test(resource.value) && resource.discount ) valid = false;
-        if ( ! resource.imgUrl ) valid = false;
-        if ( ! resource.imgBigUrl ) valid = false;
-        if ( ! resource.type ) valid = false;
-        console.log(" valid ", valid);
-        return valid;
+    getErrors(resource) {
+        let errors:any = [ ];
+        if ( ! resource.id ) errors.id = true;
+        if ( resource.order && ! /^[0-9]{1,3}$/.test(resource.order.trim()) ) errors.order = true;
+        if ( resource.value && ! /^[0-9]{1,1000}$/.test(resource.value.trim()) ) errors.value = true;
+        if ( ! resource.imgUrl ) errors.imgUrl = true;
+        if ( ! resource.imgBigUrl ) errors.imgBigUrl = true;
+        if ( ! resource.type ) errors.type = true;
+        errors.invalide = Object.keys(errors).length;
+        console.log(" valid ", errors);
+        return errors;
     }
 
     setProp(resource, type , value ) {

@@ -1,9 +1,63 @@
+@mixin btn-color($btn-color, $text-color: white) {
+    background-color: $btn-color;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: bold;
+    text-align: center;
+    color: $text-color;
+    border-color: $btn-color;
+    padding: 8px 30px;
+
+    .icon {
+      fill: $text-color;
+    }
+    
+    .icon {
+      display: inline-block;
+      vertical-align: -2px;
+      margin-right: 4px;
+    }
+
+    &:hover,
+    &:focus {
+        color: $text-color;
+        background-color: darken($btn-color, 6%);
+        border-color: $btn-color;
+    }
+
+    &:focus {
+      border-color: $btn-color;     
+      outline: none;
+      background-color: darken($btn-color, 10%);
+      box-shadow: 0 0 2px 1px transparentize(darken($btn-color, 10%), 0.5);
+    }
+
+    &:disabled,
+    &.disabled,
+    &--disabled {
+      opacity: 0.4;
+    }
+}
+
+
 // Core Admin Variables
 
 $enable-sidebar-nav-rounded: false;
 
-$border-color: $gray-lighter;
+$border-color: #efefef;
 $layout-transition-speed: .25s;
+$bg-color: #f4f3f3;
+
+$btn-blue: #00a0e5;
+$btn-pink: #fe8a8a;
+$invalid: #fd8a8a;
+$img-bg-color: white;
+$text-light-color: #c5c5c5;
+$gift-blue: #39a3dd;
+$gift-pink: #ff3e7d;
+$gift-green: #30b198;
+$input-color: #f7f7f7;
+$custom-select-color: red;
 
 
 // Social Colors

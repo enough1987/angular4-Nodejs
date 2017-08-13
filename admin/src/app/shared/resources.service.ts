@@ -44,10 +44,11 @@ export class ResourcesService {
 
     add(resource) {
         return Observable.create(observer => {
-            if (this.isValid(resource)) {
+            let errors: any = this.getErrors(resource);
+            if ( !errors.invalide ) {
                 observer.next({ resource: {} });
             } else {
-                observer.error({});
+                observer.error(errors);
             }
             observer.complete();
         });
@@ -55,10 +56,11 @@ export class ResourcesService {
 
     edit(resource) {
         return Observable.create(observer => {
-            if (this.isValid(resource)) {
+            let errors: any = this.getErrors(resource);
+            if ( !errors.invalide ) {
                 observer.next({ resource: {} });
             } else {
-                observer.error({});
+                observer.error(errors);
             }
             observer.complete();
         });
@@ -71,17 +73,18 @@ export class ResourcesService {
         });
     }
 
-    isValid(resource) {
-        let valid: boolean = true;
-        if (!resource.id) valid = false;
-        if (! /^[0-9]{1,3}$/.test(resource.order) && resource.order) valid = false;
-        if (! /^[0-9]{1,1000}$/.test(resource.discount) && resource.discount) valid = false;
-        if (! /[0-9]/.test(resource.simple)) valid = false;
-        if (! /[0-9]/.test(resource.rare)) valid = false;
-        if (! /[0-9]/.test(resource.excellent)) valid = false;
-        if (!resource.imgUrl) valid = false;
-        console.log(" valid ", valid);
-        return valid;
+    getErrors(resource) {
+        let errors:any = [ ];;
+        if ( !resource.id ) errors.id = true;
+        if ( resource.order && ! /^[0-9]{1,3}$/.test(resource.order) ) errors.order = true;
+        if ( resource.discount && ! /^[0-9]{1,1000}$/.test(resource.discount) ) errors.discount= true;
+        if ( ! /[0-9]/.test(resource.simple) ) errors.simple = true;
+        if ( ! /[0-9]/.test(resource.rare) ) errors.rare = true;
+        if ( ! /[0-9]/.test(resource.excellent) ) errors.excellent = true;
+        if ( !resource.imgUrl ) errors.imgUrl = true;
+        errors.invalide = Object.keys(errors).length;
+        console.log(" valid ", errors);
+        return errors;
     }
 
     upload(resource, resourceProp) {

@@ -294,32 +294,6 @@
     margin: 8px 0;
 }
 
-@media (min-width: 900px) {
-    .broadcast__main {
-        @include row;
-        @include box;
-        margin-bottom: 20px;    
-    }
-
-    .broadcast__secondary {
-        width: calc(100% - 340px);
-    }
-
-    .video-container {
-        flex-grow: 1;
-        width: calc(100% - 340px);
-        box-shadow: none;
-        margin-bottom: 0;
-    }
-
-    .chat {
-        width: 340px;
-        box-shadow: none;
-        margin-bottom: 0;
-        box-shadow: 0 4px 8px 0 $pale-grey;
-    }
-}
-
 /* ******** Gifts ********* */
 
 .gift-block {
@@ -1616,4 +1590,31 @@ app-main {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+@media (min-width: 900px) {
+    .broadcast__main {
+        @include row;
+        @include box;
+        margin-bottom: 20px;    
+    }
+
+    .broadcast__secondary {
+        width: calc(100% - 340px);
+    }
+
+    .video-container {
+        flex-grow: 1;
+        width: calc(100% - 340px);
+        box-shadow: none;
+        margin-bottom: 0;
+    }
+
+    .chat {
+        width: 340px;
+        box-shadow: none;
+        margin-bottom: 0;
+        border-radius: 0;
+        box-shadow: 0 4px 8px 0 $pale-grey;
+    }
 }

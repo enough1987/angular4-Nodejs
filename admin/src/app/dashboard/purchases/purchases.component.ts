@@ -12,6 +12,7 @@ export class PurchasesComponent {
     resources;
     newResource: any = {};
     isAdd: boolean = false;
+    removeItem;
 
     constructor(public resourcesService: ResourcesService) {
         this.resourcesService.getAll().subscribe((data) => {
@@ -30,33 +31,42 @@ export class PurchasesComponent {
 
     add() {
         this.resourcesService.add(this.newResource).subscribe((data) => {
-            delete this.newResource.error;
+            delete this.newResource.errors;
             this.resources.push(this.newResource);
             this.toggleAdd();
         }, (err) => {
-            this.newResource.error = true;
+            this.newResource.errors = err;
             console.log(err);
         });
     }
 
     edit(resource) {
         this.resourcesService.edit(resource).subscribe((data) => {
+            delete resource.errors;
             resource.editMode = false;
-            resource.error = false;
         }, (err) => {
-            resource.error = true;
+            resource.errors = err;
             console.log(err);
         });
     }
 
-    remove(resource) {
-        console.log( resource );
-        this.resourcesService.remove(resource.id).subscribe((data) => {
+    openRemoveModal(row){
+        this.removeItem = row;
+    }
+
+    cancelRemove() {
+        delete this.removeItem;
+    }
+
+    remove() {
+        console.log( this.removeItem );
+        this.resourcesService.remove(this.removeItem.id).subscribe((data) => {
             for (var i = this.resources.length - 1; i >= 0; i--) {
-                if (this.resources[i].id === resource.id) {
+                if (this.resources[i].id === this.removeItem.id) {
                     this.resources.splice(i, 1);
                 }
             }
+            delete this.removeItem;
         }, (err) => {
             console.log(err);
         });
