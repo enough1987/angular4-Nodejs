@@ -1,3 +1,7 @@
+body {
+    background-color: $bg-color;
+}
+
 .main .container-fluid {
     padding: 30px;
 }
@@ -235,7 +239,7 @@ nav.sidebar-nav {
 
 .error-msg {
     color: red;
-    color: darken($btn-pink, 10%);
+    color: $invalid;
 }
 
 .purchase-img {
@@ -530,6 +534,7 @@ img.dashboard-table-body__cell-img-in {
         font-weight: bold;
         font-size: 0.9rem;
         color: black;
+        border-radius: 3px;
         border: solid 1px white;
     }
 
@@ -543,12 +548,27 @@ img.dashboard-table-body__cell-img-in {
             color: black;
             background: white;
         }
+
+        &:invalid,
+        &.invalid {
+            border: 1px solid $invalid;
+            color: $invalid;
+        }
+    }
+
+    input.item-input.invalid + .item-title,
+    input.item-input:invalid + .item-title {
+        color: $invalid;
     }
 
     .error-msg {
         position: absolute;
         bottom: 40px;
-        left: 20px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-size: 1rem;
+        font-weight: bold;
         margin: 10px 0;
     }
 
@@ -587,6 +607,7 @@ img.dashboard-table-body__cell-img-in {
 
         .item-input {
             margin-top: 7px;
+            border: 1px solid #f8f8f8;
 
             &::before {
                 content: "x";
@@ -595,6 +616,9 @@ img.dashboard-table-body__cell-img-in {
 
         input.item-input {
             background-color: #efefef;
+            &:focus {
+                border: 1px solid #e4e4e4;
+            }
         }
 
     }
@@ -659,7 +683,7 @@ img.dashboard-table-body__cell-img-in {
     order: 1;
     margin: 0 -20px;
     margin-top: auto;
-    padding-top: 30px;
+    padding-top: 40px;
     display: flex;
 }
 
@@ -754,6 +778,8 @@ img.dashboard-table-body__cell-img-in {
         }
     }
 }
+
+/*** Reports *** /
 
 
 /* ***** BUTTONS ***** */
@@ -903,6 +929,28 @@ img.dashboard-table-body__cell-img-in {
     }
 }
 
+.modal-btn {
+    min-width: 100px;
+    margin: 0 20px;
+
+    &--remove {
+        @include btn-color($btn-pink);
+    }
+
+    &--cancel {
+        @include btn-color(#f7f7f7, black);
+    }
+}
+
+.tab-item {
+    padding: 15px 30px;
+    background: white;
+    
+    &--is-active {
+        opacity: 1;
+    }
+}
+
 /* ***** Fields ***** */
 
 .upload-file {
@@ -1018,6 +1066,17 @@ img.dashboard-table-body__cell-img-in {
         opacity: 0;
     }
 
+    .invalid,
+    input:invalid {
+        color: $invalid;
+        border-color: $invalid;  
+    }
+
+    .item-input:invalid + .item-title,
+    .item-input.invalid + .item-title {
+        color: $invalid;
+    }
+
 }
 
 .purchase__select {
@@ -1027,6 +1086,52 @@ img.dashboard-table-body__cell-img-in {
     text-align: center;
     background-color: $input-color;
     border: 1px solid $border-color;
+}
+
+.error {
+    margin-top: 20px;
+    padding: 20px;
+    color: $invalid;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: $bg-color;
+    border: 1px solid $invalid;
+}
+
+/**** Modals *****/
+
+.modal-bg {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: transparentize(black, 0.3);
+    z-index: 999;
+}
+
+.modal-remove {
+    display: none;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    z-index: 1000;
+    padding: 40px;
+    width: 35%;
+    transform: translateX(-50%);
+
+    text-align: center;
+    background-color: white;
+    border-radius: 3px;
+
+}
+
+.modal__text {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 40px;
 }
 
 
@@ -1074,7 +1179,11 @@ img.dashboard-table-body__cell-img-in {
 }
 
 
+//////////////////////////// 
 
+.modal-active {
+    display: block;
+}
 
 .dashboard-header {
     padding: 1%;
@@ -1143,9 +1252,6 @@ img.dashboard-table-body__cell-img-in {
     min-width: 400px;
     width: 40%;
 }
-
-
-
 
 
 
