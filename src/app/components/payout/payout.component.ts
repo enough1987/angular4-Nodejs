@@ -31,13 +31,13 @@ export class PayoutComponent {
       this.paypalService.authorizeCode = this.activatedRoute.snapshot.queryParams["code"];
       console.log( ' ~~--> ', this.paypalService.authorizeCode );
       if (!this.paypalService.authorizeCode) {
-        alert(" test - no authorizeCode ");
+        console.log(" test - no authorizeCode ");
         this.router.navigate(['/payout/login']);
       }
       this.paypalService.getUserInfo().subscribe((data) => {
         console.log( this.paypalService.userinfo )
         if (!this.paypalService.userinfo) {
-          alert(" test - no userinfo ");
+          console.log(" test - no userinfo ");
           this.router.navigate(['/payout/login']);
         }
       });;
@@ -56,20 +56,24 @@ export class PayoutComponent {
   payout() {
     console.log(this.paypalService.amount, ' || ', this.paypalService.userinfo);
     if (!this.paypalService.amount || !this.paypalService.userinfo) {
-      alert(" test - no authorizeCode ");
-      //this.router.navigate(['/payout/login']);
+      console.log(" test - no authorizeCode ");
+      this.router.navigate(['/payout/login']);
       return;
     }
     this.paypalService.payout().subscribe((data:any) => {
       console.log(data);
       if ( data.links[0] ) {
-        alert( " YES" );
+        console.log( " YES" );
         this.router.navigate(['/payout/init']); 
         //window.location.href =  data.links[0].href;       
       } else {
-        alert(' NO ');
+        console.log( ' NO ' );
       }
     });
+  }
+
+  goBack(){
+    window.location.href = 'http://www.streamtechltd.com/';
   }
 
 

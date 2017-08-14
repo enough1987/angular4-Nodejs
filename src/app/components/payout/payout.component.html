@@ -2,8 +2,9 @@
     *ngIf=" id == 'init' " >
     
     <header class="sidebar-header">
+<!--[routerLink]="['/payout/back']" -->
         <button class="small-btn icon icon--back"
-[routerLink]="['/payout/back']" 
+        (click)="goBack()"
         ></button>
         <h1 class="sidebar-title">Income</h1>
         <button class="small-btn icon icon--history"
